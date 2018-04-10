@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_marginTop="63dp"
         android:text="RentaCar"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
