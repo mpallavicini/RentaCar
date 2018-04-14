@@ -16,7 +16,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:label="Rentacar"
+=======
+            android:label="RentaCar"
+>>>>>>> master
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,10 +29,17 @@
         </activity>
 
         <activity
+<<<<<<< HEAD
             android:name=".MainActivity"
             android:label="Rentacar"
             android:theme="@style/AppTheme">
         </activity>
+=======
+            android:name=".MainMenuActivity"
+            android:label="RentaCar"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ReservOneActivity"></activity>
+>>>>>>> master
     </application>
 
 </manifest>
