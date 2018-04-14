@@ -19,13 +19,16 @@ public class AppModel {
         currentUsers.put(emailAdd, newUser);
     }
 
-    public boolean authenticateUser(String emailAdd, String password) {
+    public int authenticateUser(String emailAdd, String inpPassword) {
         if(currentUsers.containsKey(emailAdd)) {
-            return true;
+            String regPassword = currentUsers.get(emailAdd).getUserPassword();
+            if(regPassword.equals(inpPassword))
+                return 1;
+            else {
+                return -1;
+            }
         }
-        else {
-            return false;
-        }
+        return -2;
     }
 
     private Map<String, UserProfile> currentUsers = new HashMap<>();
