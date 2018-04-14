@@ -6,6 +6,11 @@ package edu.fau.oosd.group9.rentacar;
 
 public class UserProfile {
 
+    public UserProfile(String emaildAdd, String password) {
+        userEmailAddress = emaildAdd;
+        userPassword = password;
+    }
+
     public String getUserEmailAddress() {
         return userEmailAddress;
     }
