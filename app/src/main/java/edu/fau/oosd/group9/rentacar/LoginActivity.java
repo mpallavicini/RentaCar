@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
      * A dummy authentication store containing known user names and passwords.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "marco@fau.edu:marco123", "justin@fau.edu:justin123", "ohm@fau.edu:ohm123"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -183,11 +183,10 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a registry of accounts.
 
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 return false;
             }
@@ -198,9 +197,8 @@ public class LoginActivity extends AppCompatActivity {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
+                // TODO: register the new account here.
             }
-
-            // TODO: register the new account here.
             return true;
         }
 
