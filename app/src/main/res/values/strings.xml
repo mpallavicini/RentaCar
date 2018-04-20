@@ -12,4 +12,11 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="title_activity_reserv_one">ReservOneActivity</string>
+
+    <string-array name="locations_array">
+        <item>Select location</item>
+        <item>Miami, FL</item>
+        <item>Boca Raton, FL</item>
+        <item>Atlanta, GA</item>
+    </string-array>
 </resources>
