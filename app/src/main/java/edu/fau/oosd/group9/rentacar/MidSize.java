@@ -7,10 +7,11 @@ public class MidSize implements CarInterface {
 
     @Override
     public String getVehicleClass() {
-        return price;
+        return vehicleClass;
     }
 
+    @Override
     public String getPrice() {
-        return vehicleClass;
+        return price;
     }
 }

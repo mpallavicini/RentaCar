@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ReservTwoActivity">
+    tools:context=".ReservThreeActivity">
 
     <Button
-        android:id="@+id/reservtwo_next"
+        android:id="@+id/reservthree_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="504dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/reservtwo_back"
+        android:id="@+id/reservthree_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="504dp"
@@ -34,7 +34,7 @@
         android:layout_width="236dp"
         android:layout_height="50dp"
         android:layout_marginTop="140dp"
-        android:text="Select the class of vehicle you would like to reserve."
+        android:text="Select any additional options for your vehicle."
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -71,34 +71,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Compact ($20/day)" />
+            android:text="Vehicle Insurance ($15/day)" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mid-Size ($30/day)" />
+            android:text="Satalite Radio ($5/day)" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Crossover ($40/day)" />
+            android:text="GPS Unit ($10/day)" />
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" SUV ($50/day)" />
-
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Truck ($60/day)" />
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>

@@ -19,4 +19,5 @@
         <item>Boca Raton, FL</item>
         <item>Atlanta, GA</item>
     </string-array>
+    <string name="title_activity_reserv_three">ReservThreeActivity</string>
 </resources>
