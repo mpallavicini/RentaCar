@@ -1,7 +1,5 @@
 package edu.fau.oosd.group9.rentacar;
 
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +19,7 @@ public class AppModel {
         registeredUsers.put(emailAdd, newUser);
         currentUser = emailAdd;
     }
+
 
     public String getCurrentUser() {
         return currentUser;
