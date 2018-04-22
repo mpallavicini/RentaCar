@@ -25,7 +25,7 @@ import android.widget.TextView;
  */
 public class LoginActivity extends AppCompatActivity {
 
-    private AppModel modelInstance = AppModel.getInstance();
+    private final AppModel modelInstance = AppModel.getInstance();
 
     /**
      * A dummy authentication store containing known user names and passwords.

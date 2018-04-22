@@ -26,6 +26,11 @@ public class ReservFourActivity extends AppCompatActivity {
     private TextView finalRate;
     private TextView finalCost;
 
+    //get AppModel instance
+    private AppModel modelInstance = AppModel.getInstance();
+    //get the most recent reservation
+    private Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
+
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for those UI elements.
@@ -52,12 +57,12 @@ public class ReservFourActivity extends AppCompatActivity {
 
         //display summary to the user, pulling data from the model and pushing to the view
         //TODO: get values from model instead of using string placeholders
-        pickupDate.setText("Date PH");
-        pickupTime.setText("Time PH");
-        pickupLocation.setText("Location PH");
-        dropoffDate.setText("Date PH");
-        dropoffTime.setText("Time PH");
-        dropoffLocation.setText("Location PH");
+        pickupDate.setText(lastReservation.getPickUpDate());
+        pickupTime.setText(lastReservation.getPickUpTime());
+        pickupLocation.setText(lastReservation.getPickUpLocation());
+        dropoffDate.setText(lastReservation.getDropOffDate());
+        dropoffTime.setText(lastReservation.getDropOffTime());
+        dropoffLocation.setText(lastReservation.getDropOffLocation());
         vehicleClass.setText("Class PH");
         optionOne.setText("Option PH");
         optionTwo.setText("Option PH");

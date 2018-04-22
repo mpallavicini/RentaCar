@@ -11,6 +11,7 @@ public class UserProfile {
     public UserProfile(String emaildAdd, String password) {
         userEmailAddress = emaildAdd;
         userPassword = password;
+        userReservations = new ArrayList<>();
     }
 
     public String getUserEmailAddress() {
@@ -23,10 +24,15 @@ public class UserProfile {
 
     public void addUserReservation(Reservation newReservation) {
         userReservations.add(newReservation);
+        //String test = "hello";
     }
 
     public ArrayList<Reservation> getUserReservations() {
         return userReservations;
+    }
+
+    public Reservation getLastReservation() {
+        return userReservations.get(userReservations.size()-1);
     }
 
     private String userName;

@@ -55,7 +55,8 @@ public class ReservOneActivity extends AppCompatActivity
 
     //new reservation
     private Reservation newReservation = new Reservation();
-    private AppModel modelInstance = AppModel.getInstance();
+    //get AppModel instance
+    private final AppModel modelInstance = AppModel.getInstance();
 
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
