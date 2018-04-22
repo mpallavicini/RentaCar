@@ -23,27 +23,31 @@ public class ReservOneActivity extends AppCompatActivity
         TimePickerFragment.TimePickerFragmentListener, AdapterView.OnItemSelectedListener {
 
     //flags for tracking which PICK DATE or PICK TIME buttons are pressed
-    int DATE_DIALOG = 0;
-    int TIME_DIALOG = 0;
+    private int DATE_DIALOG = 0;
+    private int TIME_DIALOG = 0;
 
     //references to our two spinner menus
-    Spinner pickupLocation;
-    Spinner dropoffLocation;
+    private Spinner pickupLocation;
+    private Spinner dropoffLocation;
 
     //references to our four PICK DATE or PICK TIME buttons
-    Button pickupDateButton;
-    Button pickupTimeButton;
-    Button dropoffDateButton;
-    Button dropoffTimeButton;
+    private Button pickupDateButton;
+    private Button pickupTimeButton;
+    private Button dropoffDateButton;
+    private Button dropoffTimeButton;
 
     //references to text fields that hold values updated by timePicker() and datePicker()
-    TextView pickupDate;
-    TextView pickupTime;
-    TextView dropoffDate;
-    TextView dropoffTime;
+    private TextView pickupDate;
+    private TextView pickupTime;
+    private TextView dropoffDate;
+    private TextView dropoffTime;
 
     //create fragment manager for the date and time picker UI elements
-    FragmentManager fm = getFragmentManager();
+    private FragmentManager fm = getFragmentManager();
+
+    //new reservation
+    private Reservation newReservation = new Reservation();
+    private AppModel modelInstance = AppModel.getInstance();
 
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
@@ -128,6 +132,8 @@ public class ReservOneActivity extends AppCompatActivity
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //upload reservation data to model
+                modelInstance.addReservationForCurrentUser(newReservation);
                 //if button is pressed, start the reservation activity
                 Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
                 startActivity(intent);
@@ -156,14 +162,17 @@ public class ReservOneActivity extends AppCompatActivity
                                 "Please select pickup location.", Toast.LENGTH_LONG).show();
                         break;
                     case 1: //Miami, FL
+                        newReservation.setPickUpLocation("Miami, FL");
                         Toast.makeText(ReservOneActivity.this,
                                 "Miami pickup selected.", Toast.LENGTH_LONG).show();
                         break;
                     case 2: //Boca Raton, FL
+                        newReservation.setPickUpLocation("Boca Raton, FL");
                         Toast.makeText(ReservOneActivity.this,
                                 "Boca Raton pickup selected.", Toast.LENGTH_LONG).show();
                         break;
                     case 3: //Atlanta, GA
+                        newReservation.setPickUpLocation("Atlanta, GA");
                         Toast.makeText(ReservOneActivity.this,
                                 "Atlanta pickup selected.", Toast.LENGTH_LONG).show();
                         break;
@@ -176,14 +185,17 @@ public class ReservOneActivity extends AppCompatActivity
                                 "Please select dropoff location.", Toast.LENGTH_LONG).show();
                         break;
                     case 1: //Miami, FL
+                        newReservation.setDropOffLocation("Miami, FL");
                         Toast.makeText(ReservOneActivity.this,
                                 "Miami dropoff selected.", Toast.LENGTH_LONG).show();
                         break;
                     case 2: //Boca Raton, FL
+                        newReservation.setDropOffLocation("Boca Raton, FL");
                         Toast.makeText(ReservOneActivity.this,
                                 "Boca Raton dropoff selected.", Toast.LENGTH_LONG).show();
                         break;
                     case 3: //Atlanta, GA
+                        newReservation.setDropOffLocation("Atlanta, GA");
                         Toast.makeText(ReservOneActivity.this,
                                 "Atalnta dropoff selected.", Toast.LENGTH_LONG).show();
                         break;
@@ -232,10 +244,12 @@ public class ReservOneActivity extends AppCompatActivity
         if (DATE_DIALOG == 1)
         {
             pickupDate.setText(dateFormat.format(cal.getTime()));
+            newReservation.setPickUpDate(dateFormat.format(cal.getTime()));
         }
         else if (DATE_DIALOG == 2)
         {
             dropoffDate.setText(dateFormat.format(cal.getTime()));
+            newReservation.setDropOffDate(dateFormat.format(cal.getTime()));
         }
     }
 
@@ -252,10 +266,12 @@ public class ReservOneActivity extends AppCompatActivity
         if (TIME_DIALOG == 1)
         {
             pickupTime.setText(timeString);
+            newReservation.setPickUpTime(timeString);
         }
         else if (TIME_DIALOG == 2)
         {
             dropoffTime.setText(timeString);
+            newReservation.setDropOffTime(timeString);
         }
     }
 }

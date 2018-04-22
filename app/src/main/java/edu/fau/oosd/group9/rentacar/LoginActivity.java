@@ -2,7 +2,9 @@ package edu.fau.oosd.group9.rentacar;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -47,9 +49,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -61,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -223,7 +224,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
-                intent.putExtra("currentUser", modelInstance.getCurrentUser());
+                intent.putExtra("currentUser", modelInstance.getCurrentUser().getUserEmailAddress());
                 startActivity(intent);
                 finish();
             } else {
