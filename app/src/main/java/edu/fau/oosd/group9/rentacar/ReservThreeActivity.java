@@ -22,7 +22,7 @@ public class ReservThreeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserv_two);
+        setContentView(R.layout.activity_reserv_three);
 
         //Initialize additional options
         final VehicleInsurance vi = new VehicleInsurance();
@@ -31,7 +31,7 @@ public class ReservThreeActivity extends AppCompatActivity {
 
 
         //listen for press of BACK button and go to ReservTwoActivity
-        Button backButton = (Button) findViewById(R.id.reservtwo_back);
+        Button backButton = (Button) findViewById(R.id.reservthree_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,8 +42,8 @@ public class ReservThreeActivity extends AppCompatActivity {
             }
         });
 
-        //listen for press of NEXT button and go to ReservThreeActivity
-        Button nextButton = (Button) findViewById(R.id.reservtwo_next);
+        //listen for press of NEXT button and go to ReservFourActivity
+        Button nextButton = (Button) findViewById(R.id.reservthree_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +93,7 @@ public class ReservThreeActivity extends AppCompatActivity {
             }
         });
 
-        
+
 
     }
 }

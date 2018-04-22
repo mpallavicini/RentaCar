@@ -58,7 +58,7 @@ public class ReservFourActivity extends AppCompatActivity {
         finalCost.setText("Cost PH");
 
 
-/*        //listen for press of BACK button and go to ReservThreeActivity
+        //listen for press of BACK button and go to ReservThreeActivity
         Button backButton = (Button) findViewById(R.id.reservfour_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ public class ReservFourActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
 /*        //listen for press of NEXT button and go to ReservFiveActivity
         Button nextButton = (Button) findViewById(R.id.reservfour_next);
