@@ -1,6 +1,9 @@
 package edu.fau.oosd.group9.rentacar;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> fcdfd14534bd2cf18197f0f2602ff08aac1ffe32
 import java.util.HashMap;
 import java.util.Map;
 
