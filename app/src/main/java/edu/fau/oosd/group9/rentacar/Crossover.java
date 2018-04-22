@@ -7,10 +7,10 @@ public class Crossover implements CarInterface {
 
     @Override
     public String getVehicleClass() {
-        return price;
+        return vehicleClass;
     }
 
     public String getPrice() {
-        return vehicleClass;
+        return price;
     }
 }
