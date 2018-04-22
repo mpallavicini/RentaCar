@@ -58,13 +58,19 @@
 
     <RadioGroup
         android:id="@+id/rgroup"
-        android:layout_width="176dp"
-        android:layout_height="269dp"
-        android:layout_marginTop="220dp"
+        android:layout_width="175dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="236dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" SUV ($50/day)" />
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -86,13 +92,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Crossover ($40/day)" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" SUV ($50/day)" />
 
         <RadioButton
             android:id="@+id/radioButton5"
