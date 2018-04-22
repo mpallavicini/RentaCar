@@ -40,7 +40,28 @@ public class AppModel {
         return -2;
     }
 
+    public void addToCarList(Car car){
+        carList.add(car);
+    }
+
+    public String getPriceFromCarList(String carName){
+        return carList.get(carName).getPrice();
+    }
+
+    public void removeFromCarList(){
+        carList.remove();
+    }
+    public Boolean isEmptyFromCarList(){
+        return carList.isEmpty();
+    }
+
+
+
+
+
     private String currentUser;
     private Map<String, UserProfile> registeredUsers = new HashMap<>();
     private static AppModel instance = new AppModel();
+
+    private CarList carList = new CarList();
 }

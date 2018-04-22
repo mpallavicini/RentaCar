@@ -20,5 +20,13 @@ public class CarList {
         return car;
     }
 
+    public void remove(){
+        carList.clear();
+    }
+
+    public Boolean isEmpty(){
+        return carList.isEmpty();
+    }
+
 
 }
