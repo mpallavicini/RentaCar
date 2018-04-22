@@ -20,6 +20,9 @@ public class ReservThreeActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final AppModel modelInstance = AppModel.getInstance();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_three);
 
@@ -59,6 +62,7 @@ public class ReservThreeActivity extends AppCompatActivity {
         vehicleInsureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 Toast.makeText(ReservThreeActivity.this,
                         vi.price, Toast.LENGTH_LONG).show();

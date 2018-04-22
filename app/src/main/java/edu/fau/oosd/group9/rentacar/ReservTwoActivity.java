@@ -20,6 +20,9 @@ public class ReservTwoActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final AppModel modelInstance = AppModel.getInstance();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_two);
 
@@ -61,12 +64,22 @@ public class ReservTwoActivity extends AppCompatActivity {
         compactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(modelInstance.isEmptyFromCarList())
+                {
+                    modelInstance.addToCarList(cv);
+                }
+                else{
+                    modelInstance.removeFromCarList();
+                    modelInstance.addToCarList(cv);
+                }
+
 
                 Toast.makeText(ReservTwoActivity.this,
-                        cv.price, Toast.LENGTH_LONG).show();
+                        modelInstance.getPriceFromCarList("Compact"), Toast.LENGTH_LONG).show();
 
             }
         });
+
 
         //listen for the selection of compact radio button, then send data to model based off
         //  vehicle class
@@ -74,9 +87,18 @@ public class ReservTwoActivity extends AppCompatActivity {
         midButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(modelInstance.isEmptyFromCarList())
+                {
+                    modelInstance.addToCarList(ms);
+                }
+                else{
+                    modelInstance.removeFromCarList();
+                    modelInstance.addToCarList(ms);
+                }
+
 
                 Toast.makeText(ReservTwoActivity.this,
-                        ms.price, Toast.LENGTH_LONG).show();
+                        modelInstance.getPriceFromCarList("Mid-Size"), Toast.LENGTH_LONG).show();
 
             }
         });
@@ -87,9 +109,18 @@ public class ReservTwoActivity extends AppCompatActivity {
         crossButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(modelInstance.isEmptyFromCarList())
+                {
+                    modelInstance.addToCarList(co);
+                }
+                else{
+                    modelInstance.removeFromCarList();
+                    modelInstance.addToCarList(co);
+                }
+
 
                 Toast.makeText(ReservTwoActivity.this,
-                        co.price, Toast.LENGTH_LONG).show();
+                        modelInstance.getPriceFromCarList("Crossover"), Toast.LENGTH_LONG).show();
 
             }
         });
@@ -100,8 +131,19 @@ public class ReservTwoActivity extends AppCompatActivity {
         suvButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(modelInstance.isEmptyFromCarList())
+                {
+                    modelInstance.addToCarList(suv);
+                }
+                else{
+                    modelInstance.removeFromCarList();
+                    modelInstance.addToCarList(suv);
+                }
+
+
                 Toast.makeText(ReservTwoActivity.this,
-                        suv.price, Toast.LENGTH_LONG).show();
+                        modelInstance.getPriceFromCarList("SUV"), Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -111,8 +153,19 @@ public class ReservTwoActivity extends AppCompatActivity {
         truckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(modelInstance.isEmptyFromCarList())
+                {
+                    modelInstance.addToCarList(truck);
+                }
+                else{
+                    modelInstance.removeFromCarList();
+                    modelInstance.addToCarList(truck);
+                }
+
+
                 Toast.makeText(ReservTwoActivity.this,
-                        truck.price, Toast.LENGTH_LONG).show();
+                        modelInstance.getPriceFromCarList("Truck"), Toast.LENGTH_LONG).show();
+
             }
         });
 
