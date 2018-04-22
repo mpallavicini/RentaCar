@@ -100,10 +100,8 @@ public class ReservTwoActivity extends AppCompatActivity {
         suvButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(ReservTwoActivity.this,
                         suv.price, Toast.LENGTH_LONG).show();
-
             }
         });
 
@@ -113,10 +111,8 @@ public class ReservTwoActivity extends AppCompatActivity {
         truckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(ReservTwoActivity.this,
                         truck.price, Toast.LENGTH_LONG).show();
-
             }
         });
 
