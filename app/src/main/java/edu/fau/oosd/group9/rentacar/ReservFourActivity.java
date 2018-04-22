@@ -78,7 +78,7 @@ public class ReservFourActivity extends AppCompatActivity {
             }
         });
 
-/*        //listen for press of NEXT button and go to ReservFiveActivity
+        //listen for press of NEXT button and go to ReservFiveActivity
         Button nextButton = (Button) findViewById(R.id.reservfour_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +88,6 @@ public class ReservFourActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
     }
 }
