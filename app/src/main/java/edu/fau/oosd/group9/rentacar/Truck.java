@@ -1,6 +1,6 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class Truck implements CarInterface {
+public class Truck extends CarAbstract {
 
     String price = "$60/day";
     String vehicleClass = "Truck";
