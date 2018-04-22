@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * The fourth page of the reservation wizard.
+ */
 public class ReservFourActivity extends AppCompatActivity {
 
-
+    //references to text fields that holds values updated by the controller upon onCreate()
     TextView pickupDate;
     TextView pickupTime;
     TextView pickupLocation;
@@ -23,12 +26,17 @@ public class ReservFourActivity extends AppCompatActivity {
     TextView finalRate;
     TextView finalCost;
 
+    /**
+     * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
+     * controller and initializes action listeners for those UI elements.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_four);
 
-        //map the UI elements to the local variables
+        //map the UI elements to the local reference variables
         pickupDate = findViewById(R.id.pickup_date_summary);
         pickupTime = findViewById(R.id.pickup_time_summary);
         pickupLocation = findViewById(R.id.pickup_location_summary);
@@ -58,7 +66,7 @@ public class ReservFourActivity extends AppCompatActivity {
         finalCost.setText("Cost PH");
 
 
-/*        //listen for press of BACK button and go to ReservThreeActivity
+        //listen for press of BACK button and go to ReservThreeActivity
         Button backButton = (Button) findViewById(R.id.reservfour_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +76,7 @@ public class ReservFourActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
 /*        //listen for press of NEXT button and go to ReservFiveActivity
         Button nextButton = (Button) findViewById(R.id.reservfour_next);
