@@ -55,6 +55,23 @@ public class AppModel {
         return carList.isEmpty();
     }
 
+    public void addToOptionList(AdditionalOptions ao){
+        optionList.add(ao);
+    }
+
+    public String getPriceFromOptionList(String optionType){
+        return optionList.get(optionType).getPrice();
+    }
+
+    public void removeFromOptionList(AdditionalOptions ao){
+        optionList.remove(ao);
+    }
+    public Boolean isEmptyFromOptionList(){
+        return optionList.isEmpty();
+    }
+
+
+
 
 
 
@@ -64,4 +81,5 @@ public class AppModel {
     private static AppModel instance = new AppModel();
 
     private CarList carList = new CarList();
+    private OptionList optionList = new OptionList();
 }

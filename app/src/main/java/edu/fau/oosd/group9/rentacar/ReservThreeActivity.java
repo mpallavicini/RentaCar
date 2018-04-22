@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -56,45 +57,122 @@ public class ReservThreeActivity extends AppCompatActivity {
             }
         });
 
-        //listen for the selection of vehicleInsure radio button, then send data to model based off
-        //  vehicle option
-        RadioButton vehicleInsureButton = (RadioButton) findViewById(R.id.radioButton1);
-        vehicleInsureButton.setOnClickListener(new View.OnClickListener() {
+
+        final CheckBox vehicleBox = (CheckBox) findViewById(R.id.checkBox);
+        vehicleBox.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                if(vehicleBox.isChecked()){
+                    modelInstance.addToOptionList(vi);
+                    Toast.makeText(ReservThreeActivity.this,
+                            modelInstance.getPriceFromOptionList("Vehicle Insurance"), Toast.LENGTH_LONG).show();
 
-
-                Toast.makeText(ReservThreeActivity.this,
-                        vi.price, Toast.LENGTH_LONG).show();
-
+                }else{
+                    if(modelInstance.isEmptyFromOptionList())
+                    {
+                        //do nothing empty
+                    }
+                    else {
+                        modelInstance.removeFromOptionList(vi);
+                    }
+                }
             }
         });
 
-        //listen for the selection of satellite radio button, then send data to model based off
-        //  vehicle option
-        RadioButton satelliteButton = (RadioButton) findViewById(R.id.radioButton2);
-        satelliteButton.setOnClickListener(new View.OnClickListener() {
+        final CheckBox satelliteBox = (CheckBox) findViewById(R.id.checkBox2);
+        satelliteBox.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-
-                Toast.makeText(ReservThreeActivity.this,
-                        sr.price, Toast.LENGTH_LONG).show();
-
+            public void onClick(View v) {
+                if(satelliteBox.isChecked()){
+                    modelInstance.addToOptionList(sr);
+                    Toast.makeText(ReservThreeActivity.this,
+                            modelInstance.getPriceFromOptionList("Satellite Radio"), Toast.LENGTH_LONG).show();
+                }else{
+                    if(modelInstance.isEmptyFromOptionList())
+                    {
+                        //do nothing empty
+                    }
+                    else {
+                        modelInstance.removeFromOptionList(sr);
+                    }
+                }
             }
         });
 
-        //listen for the selection of gps radio button, then send data to model based off
-        //  vehicle option
-        RadioButton gpsButton = (RadioButton) findViewById(R.id.radioButton3);
-        gpsButton.setOnClickListener(new View.OnClickListener() {
+        final CheckBox gpsBox = (CheckBox) findViewById(R.id.checkBox3);
+        gpsBox.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                if(gpsBox.isChecked()){
+                    modelInstance.addToOptionList(gps);
+                    Toast.makeText(ReservThreeActivity.this,
+                            modelInstance.getPriceFromOptionList("GPS"), Toast.LENGTH_LONG).show();
 
-                Toast.makeText(ReservThreeActivity.this,
-                        gps.price, Toast.LENGTH_LONG).show();
-
+                }else{
+                    if(modelInstance.isEmptyFromOptionList())
+                    {
+                        //do nothing empty
+                    }
+                    else {
+                        modelInstance.removeFromOptionList(gps);
+                    }
+                }
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
+//        //listen for the selection of vehicleInsure radio button, then send data to model based off
+//        //  vehicle option
+//        RadioButton vehicleInsureButton = (RadioButton) findViewById(R.id.radioButton1);
+//        vehicleInsureButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//                Toast.makeText(ReservThreeActivity.this,
+//                        vi.price, Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//
+//        //listen for the selection of satellite radio button, then send data to model based off
+//        //  vehicle option
+//        RadioButton satelliteButton = (RadioButton) findViewById(R.id.radioButton2);
+//        satelliteButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(ReservThreeActivity.this,
+//                        sr.price, Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//
+//        //listen for the selection of gps radio button, then send data to model based off
+//        //  vehicle option
+//        RadioButton gpsButton = (RadioButton) findViewById(R.id.radioButton3);
+//        gpsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(ReservThreeActivity.this,
+//                        gps.price, Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
 
 
 

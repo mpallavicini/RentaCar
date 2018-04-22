@@ -1,6 +1,6 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class VehicleInsurance implements AdditionalOptions {
+public class VehicleInsurance extends AdditionalOptionsAbstract {
 
     String price = "15/day";
     String option = "Vehicle Insurance";
