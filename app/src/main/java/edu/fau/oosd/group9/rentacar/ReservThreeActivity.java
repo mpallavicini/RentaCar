@@ -9,14 +9,13 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
- * The second page of the reservation wizard.
+ * The third page of the reservation wizard.
  */
-
 public class ReservThreeActivity extends AppCompatActivity {
 
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
-     * controller and initializes action listners for those UI elements.
+     * controller and initializes action listeners for those UI elements.
      * @param savedInstanceState
      */
     @Override

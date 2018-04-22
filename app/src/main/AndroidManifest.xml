@@ -30,8 +30,9 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ReservOneActivity" />
         <activity android:name=".ReservTwoActivity" />
-        <activity android:name=".ReservThreeActivity"></activity>
+        <activity android:name=".ReservThreeActivity" />
         <activity android:name=".ReservFourActivity" />
+        <activity android:name=".ReservFiveActivity"></activity>
     </application>
 
 </manifest>

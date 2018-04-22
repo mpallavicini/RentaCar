@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -46,7 +47,7 @@ public class ReservOneActivity extends AppCompatActivity
 
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
-     * controller and initializes action listners for those UI elements.
+     * controller and initializes action listeners for UI elements.
      * @param savedInstanceState
      */
     @Override
@@ -146,18 +147,48 @@ public class ReservOneActivity extends AppCompatActivity
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
-        //TODO: store the user's selection and differentiate between pickup & dropoff
-        switch (position) {
-            case 0:
-                // Whatever you want to happen when the first item gets selected
+        //TODO: store the user's selections
+        switch (parent.getId()) {
+            case R.id.pickup_location_spinner: //store the user's selection for pickup location
+                switch (position) {
+                    case 0: //no selection
+                        Toast.makeText(ReservOneActivity.this,
+                                "Please select pickup location.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 1: //Miami, FL
+                        Toast.makeText(ReservOneActivity.this,
+                                "Miami pickup selected.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 2: //Boca Raton, FL
+                        Toast.makeText(ReservOneActivity.this,
+                                "Boca Raton pickup selected.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 3: //Atlanta, GA
+                        Toast.makeText(ReservOneActivity.this,
+                                "Atlanta pickup selected.", Toast.LENGTH_LONG).show();
+                        break;
+                }
                 break;
-            case 1:
-                // Whatever you want to happen when the second item gets selected
+            case R.id.dropoff_location_spinner: //store the user's selection for dropoff location
+                switch (position) {
+                    case 0: //no selection
+                        Toast.makeText(ReservOneActivity.this,
+                                "Please select dropoff location.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 1: //Miami, FL
+                        Toast.makeText(ReservOneActivity.this,
+                                "Miami dropoff selected.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 2: //Boca Raton, FL
+                        Toast.makeText(ReservOneActivity.this,
+                                "Boca Raton dropoff selected.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 3: //Atlanta, GA
+                        Toast.makeText(ReservOneActivity.this,
+                                "Atalnta dropoff selected.", Toast.LENGTH_LONG).show();
+                        break;
+                }
                 break;
-            case 2:
-                // Whatever you want to happen when the third item gets selected
-                break;
-
         }
     }
 
