@@ -13,18 +13,18 @@ import android.widget.TextView;
 public class ReservFourActivity extends AppCompatActivity {
 
     //references to text fields that holds values updated by the controller upon onCreate()
-    TextView pickupDate;
-    TextView pickupTime;
-    TextView pickupLocation;
-    TextView dropoffDate;
-    TextView dropoffTime;
-    TextView dropoffLocation;
-    TextView vehicleClass;
-    TextView optionOne;
-    TextView optionTwo;
-    TextView optionThree;
-    TextView finalRate;
-    TextView finalCost;
+    private TextView pickupDate;
+    private TextView pickupTime;
+    private TextView pickupLocation;
+    private TextView dropoffDate;
+    private TextView dropoffTime;
+    private TextView dropoffLocation;
+    private TextView vehicleClass;
+    private TextView optionOne;
+    private TextView optionTwo;
+    private TextView optionThree;
+    private TextView finalRate;
+    private TextView finalCost;
 
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
