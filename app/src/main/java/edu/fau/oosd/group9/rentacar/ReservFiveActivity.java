@@ -29,7 +29,6 @@ public class ReservFiveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_five);
 
-
         //map UI references to UI elements
         userName = findViewById(R.id.user_name);
         userAddress = findViewById(R.id.user_address);

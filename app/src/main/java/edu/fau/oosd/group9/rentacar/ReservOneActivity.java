@@ -26,6 +26,14 @@ public class ReservOneActivity extends AppCompatActivity
     private int DATE_DIALOG = 0;
     private int TIME_DIALOG = 0;
 
+    //flag for making sure all options are selected by user
+    private int PL_FLAG = 0;
+    private int DL_FLAG = 0;
+    private int PD_FLAG = 0;
+    private int DD_FLAG = 0;
+    private int PT_FLAG = 0;
+    private int DT_FLAG = 0;
+
     //references to our two spinner menus
     private Spinner pickupLocation;
     private Spinner dropoffLocation;
@@ -127,20 +135,57 @@ public class ReservOneActivity extends AppCompatActivity
             }
         });
 
-        //listen for press of NEXT button and go to ReservTwoActivity
+        //listen for press of NEXT button and call attemptNext()
         Button nextButton = (Button) findViewById(R.id.reservone_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //upload reservation data to model
-                modelInstance.addReservationForCurrentUser(newReservation);
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
-                startActivity(intent);
-                finish();
+                attemptNext();
             }
         });
 
+    }
+
+    private void attemptNext() {
+        if (PL_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup location.", Toast.LENGTH_LONG).show();
+        }
+        else if (DL_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff location.", Toast.LENGTH_LONG).show();
+        }
+        else if (PD_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup date.", Toast.LENGTH_LONG).show();
+        }
+        else if (DD_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff date.", Toast.LENGTH_LONG).show();
+        }
+        else if (PT_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup time.", Toast.LENGTH_LONG).show();
+        }
+        else if (DT_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff time.", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            //upload reservation data to model
+            modelInstance.addReservationForCurrentUser(newReservation);
+            //if button is pressed, start the reservation activity
+            Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     /**
@@ -158,46 +203,38 @@ public class ReservOneActivity extends AppCompatActivity
             case R.id.pickup_location_spinner: //store the user's selection for pickup location
                 switch (position) {
                     case 0: //no selection
-                        Toast.makeText(ReservOneActivity.this,
-                                "Please select pickup location.", Toast.LENGTH_LONG).show();
+                        PL_FLAG = 0;
                         break;
                     case 1: //Miami, FL
                         newReservation.setPickUpLocation("Miami, FL");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Miami pickup selected.", Toast.LENGTH_LONG).show();
+                        PL_FLAG = 1;
                         break;
                     case 2: //Boca Raton, FL
                         newReservation.setPickUpLocation("Boca Raton, FL");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Boca Raton pickup selected.", Toast.LENGTH_LONG).show();
+                        PL_FLAG = 1;
                         break;
                     case 3: //Atlanta, GA
                         newReservation.setPickUpLocation("Atlanta, GA");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Atlanta pickup selected.", Toast.LENGTH_LONG).show();
+                        PL_FLAG = 1;
                         break;
                 }
                 break;
             case R.id.dropoff_location_spinner: //store the user's selection for dropoff location
                 switch (position) {
                     case 0: //no selection
-                        Toast.makeText(ReservOneActivity.this,
-                                "Please select dropoff location.", Toast.LENGTH_LONG).show();
+                        DL_FLAG = 0;
                         break;
                     case 1: //Miami, FL
                         newReservation.setDropOffLocation("Miami, FL");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Miami dropoff selected.", Toast.LENGTH_LONG).show();
+                        DL_FLAG = 1;
                         break;
                     case 2: //Boca Raton, FL
                         newReservation.setDropOffLocation("Boca Raton, FL");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Boca Raton dropoff selected.", Toast.LENGTH_LONG).show();
+                        DL_FLAG = 1;
                         break;
                     case 3: //Atlanta, GA
                         newReservation.setDropOffLocation("Atlanta, GA");
-                        Toast.makeText(ReservOneActivity.this,
-                                "Atalnta dropoff selected.", Toast.LENGTH_LONG).show();
+                        DL_FLAG = 1;
                         break;
                 }
                 break;
@@ -240,14 +277,15 @@ public class ReservOneActivity extends AppCompatActivity
     public void onDateSet(int year, int month, int day) {
         Calendar cal = new GregorianCalendar(year, month, day);
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        //TODO: store selected dates in model
         if (DATE_DIALOG == 1)
         {
+            PD_FLAG = 1;
             pickupDate.setText(dateFormat.format(cal.getTime()));
             newReservation.setPickUpDate(dateFormat.format(cal.getTime()));
         }
         else if (DATE_DIALOG == 2)
         {
+            DD_FLAG = 1;
             dropoffDate.setText(dateFormat.format(cal.getTime()));
             newReservation.setDropOffDate(dateFormat.format(cal.getTime()));
         }
@@ -261,15 +299,16 @@ public class ReservOneActivity extends AppCompatActivity
      */
     @Override
     public void onTimeSet(int hour, int minute) {
-        //TODO: store selected times in model
         String timeString = hour +":"+ minute;
         if (TIME_DIALOG == 1)
         {
+            PT_FLAG = 1;
             pickupTime.setText(timeString);
             newReservation.setPickUpTime(timeString);
         }
         else if (TIME_DIALOG == 2)
         {
+            DT_FLAG = 1;
             dropoffTime.setText(timeString);
             newReservation.setDropOffTime(timeString);
         }

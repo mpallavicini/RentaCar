@@ -19,18 +19,23 @@ public class AppModel {
     public void addNewUser(String emailAdd, String password) {
         UserProfile newUser = new UserProfile(emailAdd, password);
         registeredUsers.put(emailAdd, newUser);
-        currentUser = emailAdd;
+        currentUser = newUser;
     }
 
-    public String getCurrentUser() {
+    public UserProfile getCurrentUser() {
         return currentUser;
+    }
+
+    public void addReservationForCurrentUser(Reservation newReservation) {
+        currentUser.addUserReservation(newReservation);
     }
 
     public int authenticateUser(String emailAdd, String inpPassword) {
         if(registeredUsers.containsKey(emailAdd)) {
-            String regPassword = registeredUsers.get(emailAdd).getUserPassword();
+            currentUser = registeredUsers.get(emailAdd);
+            String regPassword = currentUser.getUserPassword();
+
             if(regPassword.equals(inpPassword)) {
-                currentUser = emailAdd;
                 return 1;
             }
             else {
@@ -70,13 +75,7 @@ public class AppModel {
         return optionList.isEmpty();
     }
 
-
-
-
-
-
-
-    private String currentUser;
+    private UserProfile currentUser;
     private Map<String, UserProfile> registeredUsers = new HashMap<>();
     private static AppModel instance = new AppModel();
 
