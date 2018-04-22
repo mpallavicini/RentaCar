@@ -37,5 +37,10 @@ public class MainMenuActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String currentUser = extras.getString("currentUser");
+        }
     }
 }

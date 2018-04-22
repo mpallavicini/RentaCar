@@ -223,6 +223,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                intent.putExtra("currentUser", modelInstance.getCurrentUser());
                 startActivity(intent);
                 finish();
             } else {
