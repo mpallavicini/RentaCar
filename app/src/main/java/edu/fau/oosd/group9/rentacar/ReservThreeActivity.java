@@ -17,6 +17,7 @@ public class ReservThreeActivity extends AppCompatActivity {
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for those UI elements.
+     *
      * @param savedInstanceState
      */
     @Override
@@ -63,17 +64,12 @@ public class ReservThreeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if(vehicleBox.isChecked()){
+                if (vehicleBox.isChecked()) {
                     modelInstance.addToOptionList(vi);
-                    Toast.makeText(ReservThreeActivity.this,
-                            modelInstance.getPriceFromOptionList("Vehicle Insurance"), Toast.LENGTH_LONG).show();
-
-                }else{
-                    if(modelInstance.isEmptyFromOptionList())
-                    {
+                } else {
+                    if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
-                    }
-                    else {
+                    } else {
                         modelInstance.removeFromOptionList(vi);
                     }
                 }
@@ -85,16 +81,12 @@ public class ReservThreeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if(satelliteBox.isChecked()){
+                if (satelliteBox.isChecked()) {
                     modelInstance.addToOptionList(sr);
-                    Toast.makeText(ReservThreeActivity.this,
-                            modelInstance.getPriceFromOptionList("Satellite Radio"), Toast.LENGTH_LONG).show();
-                }else{
-                    if(modelInstance.isEmptyFromOptionList())
-                    {
+                } else {
+                    if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
-                    }
-                    else {
+                    } else {
                         modelInstance.removeFromOptionList(sr);
                     }
                 }
@@ -106,75 +98,16 @@ public class ReservThreeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if(gpsBox.isChecked()){
+                if (gpsBox.isChecked()) {
                     modelInstance.addToOptionList(gps);
-                    Toast.makeText(ReservThreeActivity.this,
-                            modelInstance.getPriceFromOptionList("GPS"), Toast.LENGTH_LONG).show();
-
-                }else{
-                    if(modelInstance.isEmptyFromOptionList())
-                    {
+                } else {
+                    if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
-                    }
-                    else {
+                    } else {
                         modelInstance.removeFromOptionList(gps);
                     }
                 }
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-//        //listen for the selection of vehicleInsure radio button, then send data to model based off
-//        //  vehicle option
-//        RadioButton vehicleInsureButton = (RadioButton) findViewById(R.id.radioButton1);
-//        vehicleInsureButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//                Toast.makeText(ReservThreeActivity.this,
-//                        vi.price, Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-//
-//        //listen for the selection of satellite radio button, then send data to model based off
-//        //  vehicle option
-//        RadioButton satelliteButton = (RadioButton) findViewById(R.id.radioButton2);
-//        satelliteButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Toast.makeText(ReservThreeActivity.this,
-//                        sr.price, Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-//
-//        //listen for the selection of gps radio button, then send data to model based off
-//        //  vehicle option
-//        RadioButton gpsButton = (RadioButton) findViewById(R.id.radioButton3);
-//        gpsButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Toast.makeText(ReservThreeActivity.this,
-//                        gps.price, Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-
-
-
     }
 }
