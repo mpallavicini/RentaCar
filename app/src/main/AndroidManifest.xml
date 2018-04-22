@@ -31,6 +31,7 @@
         <activity android:name=".ReservOneActivity" />
         <activity android:name=".ReservTwoActivity" />
         <activity android:name=".ReservThreeActivity"></activity>
+        <activity android:name=".ReservFourActivity" />
     </application>
 
 </manifest>
