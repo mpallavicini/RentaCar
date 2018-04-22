@@ -306,7 +306,7 @@ public class ReservOneActivity extends AppCompatActivity
         else
         {
             //upload reservation data to model
-            //modelInstance.addReservationForCurrentUser(newReservation);
+            modelInstance.addReservationForCurrentUser(newReservation);
             //if button is pressed, start the reservation activity
             Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
             startActivity(intent);

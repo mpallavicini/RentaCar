@@ -13,6 +13,9 @@ import android.widget.Toast;
  */
 public class ReservTwoActivity extends AppCompatActivity {
 
+    //flag for making sure the user selects an option
+    private int OPTION_FLAG = 0;
+
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for those UI elements.
@@ -46,15 +49,12 @@ public class ReservTwoActivity extends AppCompatActivity {
             }
         });
 
-        //listen for press of NEXT button and go to ReservThreeActivity
+        //listen for press of NEXT button and call attemptNext()
         Button nextButton = (Button) findViewById(R.id.reservtwo_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservTwoActivity.this, ReservThreeActivity.class);
-                startActivity(intent);
-                finish();
+                attemptNext();
             }
         });
 
@@ -64,6 +64,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         compactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OPTION_FLAG = 1;
                 if(modelInstance.isEmptyFromCarList())
                 {
                     modelInstance.addToCarList(cv);
@@ -72,11 +73,6 @@ public class ReservTwoActivity extends AppCompatActivity {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(cv);
                 }
-
-
-                Toast.makeText(ReservTwoActivity.this,
-                        modelInstance.getPriceFromCarList("Compact"), Toast.LENGTH_LONG).show();
-
             }
         });
 
@@ -87,6 +83,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         midButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OPTION_FLAG = 1;
                 if(modelInstance.isEmptyFromCarList())
                 {
                     modelInstance.addToCarList(ms);
@@ -95,11 +92,6 @@ public class ReservTwoActivity extends AppCompatActivity {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(ms);
                 }
-
-
-                Toast.makeText(ReservTwoActivity.this,
-                        modelInstance.getPriceFromCarList("Mid-Size"), Toast.LENGTH_LONG).show();
-
             }
         });
 
@@ -109,6 +101,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         crossButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OPTION_FLAG = 1;
                 if(modelInstance.isEmptyFromCarList())
                 {
                     modelInstance.addToCarList(co);
@@ -117,11 +110,6 @@ public class ReservTwoActivity extends AppCompatActivity {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(co);
                 }
-
-
-                Toast.makeText(ReservTwoActivity.this,
-                        modelInstance.getPriceFromCarList("Crossover"), Toast.LENGTH_LONG).show();
-
             }
         });
 
@@ -131,6 +119,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         suvButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OPTION_FLAG = 1;
                 if(modelInstance.isEmptyFromCarList())
                 {
                     modelInstance.addToCarList(suv);
@@ -139,11 +128,6 @@ public class ReservTwoActivity extends AppCompatActivity {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(suv);
                 }
-
-
-                Toast.makeText(ReservTwoActivity.this,
-                        modelInstance.getPriceFromCarList("SUV"), Toast.LENGTH_LONG).show();
-
             }
         });
 
@@ -153,6 +137,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         truckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OPTION_FLAG = 1;
                 if(modelInstance.isEmptyFromCarList())
                 {
                     modelInstance.addToCarList(truck);
@@ -161,13 +146,25 @@ public class ReservTwoActivity extends AppCompatActivity {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(truck);
                 }
-
-
-                Toast.makeText(ReservTwoActivity.this,
-                        modelInstance.getPriceFromCarList("Truck"), Toast.LENGTH_LONG).show();
-
             }
         });
+    }
+
+    private void attemptNext() {
+
+        if (OPTION_FLAG == 0)
+        {
+            Toast.makeText(ReservTwoActivity.this,
+                    "Please select an option.", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            //if button is pressed, start the reservation activity
+            Intent intent = new Intent(ReservTwoActivity.this, ReservThreeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
     }
 }
