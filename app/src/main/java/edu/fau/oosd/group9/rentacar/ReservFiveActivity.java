@@ -13,16 +13,24 @@ import android.widget.EditText;
  */
 public class ReservFiveActivity extends AppCompatActivity {
 
+    //create UI references
     EditText userName;
     EditText userAddress;
     EditText userPhone;
     EditText userLicense;
 
+    /**
+     * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
+     * controller and initializes action listeners for UI elements.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_five);
 
+
+        //map UI references to UI elements
         userName = findViewById(R.id.user_name);
         userAddress = findViewById(R.id.user_address);
         userPhone = findViewById(R.id.user_phone);
@@ -62,6 +70,7 @@ public class ReservFiveActivity extends AppCompatActivity {
         String phone = userPhone.getText().toString();
         String license = userLicense.getText().toString();
 
+        //reset error flags
         boolean cancel = false;
         View focusView = null;
 
@@ -94,8 +103,10 @@ public class ReservFiveActivity extends AppCompatActivity {
         }
 
         if (cancel) {
+            //if there's an error, don't attempt submit; focus on error
             focusView.requestFocus();
         } else {
+            //if there is no error, save the data
             //TODO: save the user's entries
 
             //if successful, start the next activity
