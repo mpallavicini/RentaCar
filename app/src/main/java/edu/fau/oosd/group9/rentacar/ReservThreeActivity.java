@@ -30,29 +30,29 @@ public class ReservThreeActivity extends AppCompatActivity {
         final GPS gps = new GPS();
 
 
-        //listen for press of BACK button and go to ReservOneActivity
+        //listen for press of BACK button and go to ReservTwoActivity
         Button backButton = (Button) findViewById(R.id.reservtwo_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservThreeActivity.this, ReservThreeActivity.class);
+                Intent intent = new Intent(ReservThreeActivity.this, ReservTwoActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-/*        //listen for press of NEXT button and go to ReservThreeActivity
+        //listen for press of NEXT button and go to ReservThreeActivity
         Button nextButton = (Button) findViewById(R.id.reservtwo_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservThreeActivity.this, ReservThreeActivity.class);
+                Intent intent = new Intent(ReservThreeActivity.this, ReservFourActivity.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
         //listen for the selection of vehicleInsure radio button, then send data to model based off
         //  vehicle option
