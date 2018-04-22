@@ -24,7 +24,7 @@
         android:layout_width="236dp"
         android:layout_height="50dp"
         android:layout_marginTop="140dp"
-        android:text="Making a reservation with RentaCar is quick and easy."
+        android:text="Enter pickup and dropoff logistics to begin."
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -116,6 +116,7 @@
         android:layout_width="191dp"
         android:layout_height="25dp"
         android:layout_marginTop="224dp"
+        android:entries="@array/locations_array"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +127,6 @@
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginTop="256dp"
-        android:onClick="showDatePickerDialog"
         android:text="Pick Date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
@@ -138,7 +138,6 @@
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginTop="296dp"
-        android:onClick="showTimePickerDialog"
         android:text="Pick Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
@@ -150,6 +149,7 @@
         android:layout_width="191dp"
         android:layout_height="25dp"
         android:layout_marginTop="344dp"
+        android:entries="@array/locations_array"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +160,6 @@
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginTop="376dp"
-        android:onClick="showDatePickerDialog"
         android:text="Pick Date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
@@ -172,10 +171,75 @@
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginTop="416dp"
-        android:onClick="showTimePickerDialog"
         android:text="Pick Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pickup_date_view"
+        android:layout_width="94dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="256dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pickup_time_view"
+        android:layout_width="94dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="296dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dropoff_date_view"
+        android:layout_width="94dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="376dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dropoff_time_view"
+        android:layout_width="94dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="416dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reservone_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="504dp"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reservone_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="504dp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

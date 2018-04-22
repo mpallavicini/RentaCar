@@ -204,7 +204,7 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //            return true;
             int loginStatus = modelInstance.authenticateUser(mEmail, mPassword);
-            if (loginStatus == -1) {
+            if (loginStatus == 1) {
                 return true;
             }
             else if (loginStatus == -2) {

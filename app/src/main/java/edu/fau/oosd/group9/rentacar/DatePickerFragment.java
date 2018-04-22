@@ -3,6 +3,7 @@ package edu.fau.oosd.group9.rentacar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.DatePicker;
 
@@ -10,6 +11,8 @@ import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
+
+    private DatePickerFragmentListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -23,7 +26,19 @@ public class DatePickerFragment extends DialogFragment
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
+    @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
+        listener.onDateSet(year, month, day);
+    }
+
+    // This is the method from the DatePicker fragment to implement in the Main Activity
+    public interface DatePickerFragmentListener{
+        public void onDateSet(int year, int month, int day);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listener = (DatePickerFragmentListener) context;
     }
 }
