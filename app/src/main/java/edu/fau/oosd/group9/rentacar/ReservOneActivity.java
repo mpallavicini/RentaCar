@@ -146,48 +146,6 @@ public class ReservOneActivity extends AppCompatActivity
 
     }
 
-    private void attemptNext() {
-        if (PL_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a pickup location.", Toast.LENGTH_LONG).show();
-        }
-        else if (DL_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a dropoff location.", Toast.LENGTH_LONG).show();
-        }
-        else if (PD_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a pickup date.", Toast.LENGTH_LONG).show();
-        }
-        else if (DD_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a dropoff date.", Toast.LENGTH_LONG).show();
-        }
-        else if (PT_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a pickup time.", Toast.LENGTH_LONG).show();
-        }
-        else if (DT_FLAG == 0)
-        {
-            Toast.makeText(ReservOneActivity.this,
-                    "Please select a dropoff time.", Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            //upload reservation data to model
-            modelInstance.addReservationForCurrentUser(newReservation);
-            //if button is pressed, start the reservation activity
-            Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
     /**
      * If called on by its listener, store the user's selected entry from the spinner.
      * @param parent
@@ -198,7 +156,6 @@ public class ReservOneActivity extends AppCompatActivity
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
-        //TODO: store the user's selections
         switch (parent.getId()) {
             case R.id.pickup_location_spinner: //store the user's selection for pickup location
                 switch (position) {
@@ -311,6 +268,48 @@ public class ReservOneActivity extends AppCompatActivity
             DT_FLAG = 1;
             dropoffTime.setText(timeString);
             newReservation.setDropOffTime(timeString);
+        }
+    }
+
+    private void attemptNext() {
+        if (PL_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup location.", Toast.LENGTH_LONG).show();
+        }
+        else if (DL_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff location.", Toast.LENGTH_LONG).show();
+        }
+        else if (PD_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup date.", Toast.LENGTH_LONG).show();
+        }
+        else if (DD_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff date.", Toast.LENGTH_LONG).show();
+        }
+        else if (PT_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a pickup time.", Toast.LENGTH_LONG).show();
+        }
+        else if (DT_FLAG == 0)
+        {
+            Toast.makeText(ReservOneActivity.this,
+                    "Please select a dropoff time.", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            //upload reservation data to model
+            //modelInstance.addReservationForCurrentUser(newReservation);
+            //if button is pressed, start the reservation activity
+            Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }
