@@ -10,10 +10,14 @@ import android.widget.TextView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+    TextView currentUserText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
+
+        currentUserText = findViewById(R.id.current_user);
 
         //listen for press of Make a Reservation button
         Button makeReservationButton = (Button) findViewById(R.id.make_a_reservation_button);
@@ -42,6 +46,9 @@ public class MainMenuActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String currentUser = extras.getString("currentUser");
+            currentUserText.setText(currentUser);
         }
+
+
     }
 }

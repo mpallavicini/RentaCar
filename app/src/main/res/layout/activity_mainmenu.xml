@@ -55,16 +55,22 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="452dp"
         android:text="Logged in as:"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="486dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/current_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="468dp"
         android:textAlignment="textStart"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="505dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
