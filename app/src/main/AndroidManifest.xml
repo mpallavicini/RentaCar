@@ -29,8 +29,7 @@
             android:label="RentaCar"
             android:theme="@style/AppTheme" />
         <activity android:name=".ReservOneActivity" />
-        <activity android:name=".ReservTwoActivity" />
-        <activity android:name=".ReservFourActivity"></activity>
+        <activity android:name=".ReservTwoActivity"></activity>
     </application>
 
 </manifest>

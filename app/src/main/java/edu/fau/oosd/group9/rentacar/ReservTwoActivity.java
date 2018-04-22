@@ -26,7 +26,7 @@ public class ReservTwoActivity extends AppCompatActivity {
             }
         });
 
-/*        //listen for press of NEXT button and go to ReservThreeActivity
+/*        //listen for press of NEXT button and go to ReservTwoActivity
         Button nextButton = (Button) findViewById(R.id.reservtwo_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
