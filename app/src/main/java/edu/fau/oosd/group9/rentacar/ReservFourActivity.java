@@ -30,11 +30,6 @@ public class ReservFourActivity extends AppCompatActivity {
     private TextView finalRate;
     private TextView finalCost;
 
-    //get AppModel instance
-    private AppModel modelInstance = AppModel.getInstance();
-    //get the most recent reservation
-    private Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
-
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for those UI elements.
@@ -44,6 +39,11 @@ public class ReservFourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_four);
+
+        //get AppModel instance
+        final AppModel modelInstance = AppModel.getInstance();
+        //get the most recent reservation
+        Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
 
         //map the UI elements to the local reference variables
         pickupDate = findViewById(R.id.pickup_date_summary);

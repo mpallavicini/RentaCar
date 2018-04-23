@@ -22,9 +22,36 @@ public class UserProfile {
         return userPassword;
     }
 
+    public String getUserName() { return userName; }
+
+    public String getUserAddress() { return userAddress; }
+
+    public String getUserPhone() { return userPhone; }
+
+    public String getUserDL() { return userDL; }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public void setUserDL(String userDL) {
+        this.userDL = userDL;
+    }
+
     public void addUserReservation(Reservation newReservation) {
         userReservations.add(newReservation);
-        //String test = "hello";
     }
 
     public ArrayList<Reservation> getUserReservations() {
