@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * The fourth page of the reservation wizard.
  */
@@ -26,11 +30,6 @@ public class ReservFourActivity extends AppCompatActivity {
     private TextView finalRate;
     private TextView finalCost;
 
-    //get AppModel instance
-    private AppModel modelInstance = AppModel.getInstance();
-    //get the most recent reservation
-    private Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
-
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for those UI elements.
@@ -40,6 +39,11 @@ public class ReservFourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_four);
+
+        //get AppModel instance
+        final AppModel modelInstance = AppModel.getInstance();
+        //get the most recent reservation
+        Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
 
         //map the UI elements to the local reference variables
         pickupDate = findViewById(R.id.pickup_date_summary);
@@ -56,19 +60,39 @@ public class ReservFourActivity extends AppCompatActivity {
         finalCost = findViewById(R.id.cost_summary);
 
         //display summary to the user, pulling data from the model and pushing to the view
-        //TODO: get values from model instead of using string placeholders
         pickupDate.setText(lastReservation.getPickUpDate());
         pickupTime.setText(lastReservation.getPickUpTime());
         pickupLocation.setText(lastReservation.getPickUpLocation());
         dropoffDate.setText(lastReservation.getDropOffDate());
         dropoffTime.setText(lastReservation.getDropOffTime());
         dropoffLocation.setText(lastReservation.getDropOffLocation());
-        vehicleClass.setText("Class PH");
-        optionOne.setText("Option PH");
-        optionTwo.setText("Option PH");
-        optionThree.setText("Option PH");
-        finalRate.setText("Rate PH");
-        finalCost.setText("Cost PH");
+        vehicleClass.setText(lastReservation.getReservedCar().getVehicleClass());
+
+        int totalDailyRate = lastReservation.getReservedCar().getPrice();
+        for(AdditionalOptionsAbstract option : lastReservation.getSelectedOptions()) {
+            totalDailyRate += option.getPrice();
+            if(option.getOption() == "Vehicle Insurance") { optionOne.setText("✓ Vehicle Insurance"); }
+            else { optionOne.setText("✗ Vehicle Insurance"); }
+            if(option.getOption() == "Satellite Radio") { optionTwo.setText("✓ Satellite Radio"); }
+            else { optionTwo.setText("✗ Satellite Radio"); }
+            if(option.getOption() == "GPS") { optionThree.setText("✓ GPS"); }
+            else { optionThree.setText("✗ GPS"); }
+        }
+
+        finalRate.setText(String.valueOf(totalDailyRate));
+
+        SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy");
+        Date fromDate = null;
+        Date toDate = null;
+        try {
+            fromDate = format.parse(lastReservation.getPickUpDate());
+            toDate = format.parse(lastReservation.getDropOffDate());
+        }  catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int rentalDays = (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
+        int finalReservationCost = totalDailyRate * rentalDays;
+        finalCost.setText(String.valueOf(finalReservationCost));
 
 
         //listen for press of BACK button and go to ReservThreeActivity

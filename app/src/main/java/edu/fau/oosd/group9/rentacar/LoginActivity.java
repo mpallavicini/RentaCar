@@ -208,7 +208,8 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
-                intent.putExtra("currentUser", modelInstance.getCurrentUser().getUserEmailAddress());
+                String current_user = modelInstance.getCurrentUser().getUserEmailAddress();
+                intent.putExtra("currentUser", current_user);
                 startActivity(intent);
                 finish();
             } else {

@@ -1,9 +1,9 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class CompactVehicle extends CarAbstract {
+public class VehClass_SUV extends CarAbstract {
 
-    String price = "$20/day";
-    String vehicleClass = "Compact";
+    int price = 50;
+    String vehicleClass = "SUV";
 
     @Override
     public String getVehicleClass() {
@@ -11,7 +11,7 @@ public class CompactVehicle extends CarAbstract {
     }
 
     @Override
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 }

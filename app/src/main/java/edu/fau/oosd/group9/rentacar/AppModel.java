@@ -1,8 +1,5 @@
 package edu.fau.oosd.group9.rentacar;
 
-import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +23,6 @@ public class AppModel {
         return currentUser;
     }
 
-    public void addReservationForCurrentUser(Reservation newReservation) {
-        currentUser.addUserReservation(newReservation);
-    }
-
     public int authenticateUser(String emailAdd, String inpPassword) {
         if(registeredUsers.containsKey(emailAdd)) {
             currentUser = registeredUsers.get(emailAdd);
@@ -45,40 +38,35 @@ public class AppModel {
         return -2;
     }
 
-    public void addToCarList(Car car){
-        carList.add(car);
+    public void addReservationForCurrentUser(Reservation newReservation) {
+        currentUser.addUserReservation(newReservation);
     }
 
-    public String getPriceFromCarList(String carName){
-        return carList.get(carName).getPrice();
+    public void addToCarList(CarAbstract car){
+        carList.add(car);
     }
 
     public void removeFromCarList(){
         carList.remove();
     }
+
     public Boolean isEmptyFromCarList(){
         return carList.isEmpty();
     }
 
-    public void addToOptionList(AdditionalOptions ao){
-        optionList.add(ao);
+    public void addToOptionsList(AdditionalOptions ao){
+        addOptionsList.add(ao);
     }
 
-    public String getPriceFromOptionList(String optionType){
-        return optionList.get(optionType).getPrice();
-    }
+    public void removeFromOptionsList(AdditionalOptions ao) { addOptionsList.remove(ao); }
 
-    public void removeFromOptionList(AdditionalOptions ao){
-        optionList.remove(ao);
-    }
     public Boolean isEmptyFromOptionList(){
-        return optionList.isEmpty();
+        return addOptionsList.isEmpty();
     }
 
     private UserProfile currentUser;
     private Map<String, UserProfile> registeredUsers = new HashMap<>();
-    private static AppModel instance = new AppModel();
-
     private CarList carList = new CarList();
-    private OptionList optionList = new OptionList();
+    private AddOptionsList addOptionsList = new AddOptionsList();
+    private static AppModel instance = new AppModel();
 }

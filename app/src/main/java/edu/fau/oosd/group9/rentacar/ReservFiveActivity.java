@@ -19,6 +19,11 @@ public class ReservFiveActivity extends AppCompatActivity {
     EditText userPhone;
     EditText userLicense;
 
+    //get AppModel instance
+    private final AppModel modelInstance = AppModel.getInstance();
+    //get the current user
+    private UserProfile currentUser = modelInstance.getCurrentUser();
+
     /**
      * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
      * controller and initializes action listeners for UI elements.
@@ -106,8 +111,10 @@ public class ReservFiveActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             //if there is no error, save the data
-            //TODO: save the user's entries
-
+            currentUser.setUserName(name);
+            currentUser.setUserAddress(address);
+            currentUser.setUserPhone(phone);
+            currentUser.setUserDL(license);
             //if successful, start the next activity
             Intent intent = new Intent(ReservFiveActivity.this, MainMenuActivity.class);
             startActivity(intent);
