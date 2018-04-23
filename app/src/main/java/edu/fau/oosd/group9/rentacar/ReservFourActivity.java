@@ -54,8 +54,8 @@ public class ReservFourActivity extends AppCompatActivity {
         dropoffLocation = findViewById(R.id.dropoff_location_summary);
         vehicleClass = findViewById(R.id.class_summary);
         optionOne = findViewById(R.id.options1_summary);
-        optionTwo = findViewById(R.id.options2_summary);
-        optionThree = findViewById(R.id.options3_summary);
+        //optionTwo = findViewById(R.id.options2_summary);
+        //optionThree = findViewById(R.id.options3_summary);
         finalRate = findViewById(R.id.rate_summary);
         finalCost = findViewById(R.id.cost_summary);
 
@@ -69,15 +69,12 @@ public class ReservFourActivity extends AppCompatActivity {
         vehicleClass.setText(lastReservation.getReservedCar().getVehicleClass());
 
         int totalDailyRate = lastReservation.getReservedCar().getPrice();
+        String additionalOptions = "";
         for(AdditionalOptionsAbstract option : lastReservation.getSelectedOptions()) {
             totalDailyRate += option.getPrice();
-            if(option.getOption() == "Vehicle Insurance") { optionOne.setText("✓ Vehicle Insurance"); }
-            else { optionOne.setText("✗ Vehicle Insurance"); }
-            if(option.getOption() == "Satellite Radio") { optionTwo.setText("✓ Satellite Radio"); }
-            else { optionTwo.setText("✗ Satellite Radio"); }
-            if(option.getOption() == "GPS") { optionThree.setText("✓ GPS"); }
-            else { optionThree.setText("✗ GPS"); }
+            additionalOptions += "✓ " + option.getOption() + "\n";
         }
+        optionOne.setText(additionalOptions);
 
         finalRate.setText(String.valueOf(totalDailyRate));
 
