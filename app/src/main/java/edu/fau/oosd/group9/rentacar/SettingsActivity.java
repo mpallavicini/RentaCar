@@ -37,6 +37,18 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        //listen for press of Change Password button
+        Button passwordButton = (Button) findViewById(R.id.change_password_button);
+        passwordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if button is pressed, start the profile activity
+                Intent intent = new Intent(SettingsActivity.this, PasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
         //listen for press of Main Menu button

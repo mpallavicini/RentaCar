@@ -35,7 +35,8 @@
         <activity android:name=".ReservFiveActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ReservationsActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PasswordActivity"></activity>
     </application>
 
 </manifest>

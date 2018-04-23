@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         if(modelInstance.getNameFromUserProfile() == "")
         {
             editText.setText("Name", TextView.BufferType.EDITABLE);
-            userName = userName = findViewById(R.id.editText2);
+            userName = findViewById(R.id.editText2);
         }
         else{
             editText.setText(modelInstance.getNameFromUserProfile(), TextView.BufferType.EDITABLE);
