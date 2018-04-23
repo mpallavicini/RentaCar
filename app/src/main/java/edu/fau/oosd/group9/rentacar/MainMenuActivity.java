@@ -13,6 +13,9 @@ public class MainMenuActivity extends AppCompatActivity {
     //reference to current user textview
     private TextView currentUserView;
 
+    //get AppModel instance
+    private final AppModel modelInstance = AppModel.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +23,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         //map UI element to UI reference and display current logged in user
         currentUserView = findViewById(R.id.current_user);
-        Bundle extras = getIntent().getExtras();
-        if(extras != null){
-            currentUserView.setText(extras.getString("currentUser"));
-        }
+        currentUserView.setText(modelInstance.getCurrentUser().getUserEmailAddress());
 
         //listen for press of Make a Reservation button
         Button makeReservationButton = (Button) findViewById(R.id.make_a_reservation_button);
