@@ -60,7 +60,6 @@ public class ReservFourActivity extends AppCompatActivity {
         finalCost = findViewById(R.id.cost_summary);
 
         //display summary to the user, pulling data from the model and pushing to the view
-        //TODO: get values from model instead of using string placeholders
         pickupDate.setText(lastReservation.getPickUpDate());
         pickupTime.setText(lastReservation.getPickUpTime());
         pickupLocation.setText(lastReservation.getPickUpLocation());
@@ -72,14 +71,17 @@ public class ReservFourActivity extends AppCompatActivity {
         int totalDailyRate = lastReservation.getReservedCar().getPrice();
         for(AdditionalOptionsAbstract option : lastReservation.getSelectedOptions()) {
             totalDailyRate += option.getPrice();
-            if(option.getOption() == "Vehicle Insurance") { optionOne.setText("Vehicle Insurance"); }
-            if(option.getOption() == "Satellite Radio") { optionTwo.setText("Satellite Radio"); }
-            if(option.getOption() == "GPS") { optionThree.setText("GPS"); }
+            if(option.getOption() == "Vehicle Insurance") { optionOne.setText("✓ Vehicle Insurance"); }
+            else { optionOne.setText("✗ Vehicle Insurance"); }
+            if(option.getOption() == "Satellite Radio") { optionTwo.setText("✓ Satellite Radio"); }
+            else { optionTwo.setText("✗ Satellite Radio"); }
+            if(option.getOption() == "GPS") { optionThree.setText("✓ GPS"); }
+            else { optionThree.setText("✗ GPS"); }
         }
 
         finalRate.setText(String.valueOf(totalDailyRate));
 
-        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy");
         Date fromDate = null;
         Date toDate = null;
         try {
