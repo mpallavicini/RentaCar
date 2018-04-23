@@ -12,11 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
- * The first page of the reservation wizard.
+ * The first page of the reservation wizard for entering logistics.
  */
 public class ReservOneActivity extends AppCompatActivity
         implements DatePickerFragment.DatePickerFragmentListener,
@@ -188,7 +190,7 @@ public class ReservOneActivity extends AppCompatActivity
     }
 
     /**
-     * If nothing is selected by the user in the spinner menu, do nothing.
+     * If nothing is selected by the user in the spinner menu, do nothing
      * @param parent
      */
     @Override
@@ -221,15 +223,17 @@ public class ReservOneActivity extends AppCompatActivity
      */
     @Override
     public void onDateSet(int year, int month, int day) {
+        //convert year, month, day to a date object
         Calendar cal = new GregorianCalendar(year, month, day);
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        if (DATE_DIALOG == 1)
+
+        if (DATE_DIALOG == 1) //if result is coming from first date picker, process pickup date
         {
             PD_FLAG = 1;
             pickupDate.setText(dateFormat.format(cal.getTime()));
             newReservation.setPickUpDate(dateFormat.format(cal.getTime()));
         }
-        else if (DATE_DIALOG == 2)
+        else if (DATE_DIALOG == 2) //if result is coming from second date picker, process dropoff date
         {
             DD_FLAG = 1;
             dropoffDate.setText(dateFormat.format(cal.getTime()));
@@ -238,21 +242,24 @@ public class ReservOneActivity extends AppCompatActivity
     }
 
     /**
-     * When a user selects a time, the time picker calls this method. This method stores the user's
-     * input in the reservation model and also updates the view with the selected value.
+     * When a user selects a time, the time picker calls this method to return the result.
+     * This method stores the user's input in the reservation model and also updates the view
+     * with the selected value.
      * @param hour
      * @param minute
      */
     @Override
     public void onTimeSet(int hour, int minute) {
-        String timeString = hour +":"+ minute;
-        if (TIME_DIALOG == 1)
+        //convert the hour and minute to a string in 24 hour format
+        String timeString = hour +":"+ String.format(Locale.US, "%02d", minute);
+
+        if (TIME_DIALOG == 1) //if result is coming from first time picker, process pickup time
         {
             PT_FLAG = 1;
             pickupTime.setText(timeString);
             newReservation.setPickUpTime(timeString);
         }
-        else if (TIME_DIALOG == 2)
+        else if (TIME_DIALOG == 2) //if result is coming from second time picker, process dropoff time
         {
             DT_FLAG = 1;
             dropoffTime.setText(timeString);
@@ -260,7 +267,13 @@ public class ReservOneActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Attempts to go to the next activity. Checks to make sure user entered information in all
+     * fields. If not, notify the user and don't go to the next activity.
+     */
     private void attemptNext() {
+
+        //if a selection hasn't been made, display error toast to user
         if (PL_FLAG == 0)
         {
             Toast.makeText(ReservOneActivity.this,
@@ -291,11 +304,12 @@ public class ReservOneActivity extends AppCompatActivity
             Toast.makeText(ReservOneActivity.this,
                     "Please select a dropoff time.", Toast.LENGTH_LONG).show();
         }
-        else
+        else //if all selections have been made, save data and go to next activity
         {
             //upload reservation data to model
             modelInstance.addReservationForCurrentUser(newReservation);
-            //if button is pressed, start the reservation activity
+
+            //if button is pressed, start the next reservation activity
             Intent intent = new Intent(ReservOneActivity.this, ReservTwoActivity.class);
             startActivity(intent);
             finish();

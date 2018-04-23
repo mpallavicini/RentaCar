@@ -3,9 +3,8 @@ package edu.fau.oosd.group9.rentacar;
 import java.util.ArrayList;
 
 /**
- * Created by Ohm on 04/14/2018.
+ * Model for the user profile.
  */
-
 public class UserProfile {
 
     public UserProfile(String emaildAdd, String password) {

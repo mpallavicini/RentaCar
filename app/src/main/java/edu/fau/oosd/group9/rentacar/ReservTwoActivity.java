@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
- * The second page of the reservation wizard.
+ * The second page of the reservation wizard for selecting vehicle class.
  */
 public class ReservTwoActivity extends AppCompatActivity {
 
@@ -23,12 +23,11 @@ public class ReservTwoActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reserv_two);
 
         final AppModel modelInstance = AppModel.getInstance();
         final Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserv_two);
 
         //Initialize vehicles
         final VehClass_Compact cv = new VehClass_Compact();
@@ -141,16 +140,20 @@ public class ReservTwoActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Attempts to go to the next activity. Checks to make sure user entered information in all
+     * fields. If not, notify the user and don't go to the next activity.
+     */
     private void attemptNext() {
 
+        //if a selection hasn't been made, display error toast to user
         if (OPTION_FLAG == 0)
         {
             Toast.makeText(ReservTwoActivity.this,
                     "Please select a vehicle class", Toast.LENGTH_LONG).show();
         }
-        else
+        else //if button is pressed, start the next reservation activity
         {
-            //if button is pressed, start the reservation activity
             Intent intent = new Intent(ReservTwoActivity.this, ReservThreeActivity.class);
             startActivity(intent);
             finish();

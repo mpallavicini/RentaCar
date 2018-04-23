@@ -6,8 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * A simple Settings menu with buttons.
+ */
 public class SettingsActivity extends AppCompatActivity {
 
+    /**
+     * On creation of the activity by the user, run this code. Initializes action listeners
+     * for button UI elements from the view.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +56,6 @@ public class SettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
 
         //listen for press of Main Menu button

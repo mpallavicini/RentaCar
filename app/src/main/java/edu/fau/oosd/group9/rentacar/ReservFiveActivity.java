@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * The fifth page of the reservation wizard.
+ * The fifth page of the reservation wizard prompting the user for contact information.
  */
 public class ReservFiveActivity extends AppCompatActivity {
 
@@ -94,6 +94,7 @@ public class ReservFiveActivity extends AppCompatActivity {
             cancel = true;
         }
 
+        //check for errors; save data and continue if no errors
         if (cancel) {
             //if there's an error, don't attempt submit; focus on error
             focusView.requestFocus();

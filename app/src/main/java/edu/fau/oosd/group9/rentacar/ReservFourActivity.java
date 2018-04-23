@@ -12,23 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The fourth page of the reservation wizard.
+ * The fourth page of the reservation wizard for displaying reservation summary.
  */
 public class ReservFourActivity extends AppCompatActivity {
-
-    //references to text fields that holds values updated by the controller upon onCreate()
-    private TextView pickupDate;
-    private TextView pickupTime;
-    private TextView pickupLocation;
-    private TextView dropoffDate;
-    private TextView dropoffTime;
-    private TextView dropoffLocation;
-    private TextView vehicleClass;
-    private TextView optionOne;
-    private TextView optionTwo;
-    private TextView optionThree;
-    private TextView finalRate;
-    private TextView finalCost;
 
     //get AppModel instance
     private final AppModel modelInstance = AppModel.getInstance();
@@ -45,17 +31,17 @@ public class ReservFourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_four);
 
-        //map the UI elements to the local reference variables
-        pickupDate = findViewById(R.id.pickup_date_summary);
-        pickupTime = findViewById(R.id.pickup_time_summary);
-        pickupLocation = findViewById(R.id.pickup_location_summary);
-        dropoffDate = findViewById(R.id.dropoff_date_summary);
-        dropoffTime = findViewById(R.id.dropoff_time_summary);
-        dropoffLocation = findViewById(R.id.dropoff_location_summary);
-        vehicleClass = findViewById(R.id.class_summary);
-        optionOne = findViewById(R.id.options1_summary);
-        finalRate = findViewById(R.id.rate_summary);
-        finalCost = findViewById(R.id.cost_summary);
+        //map the UI elements to local reference variables
+        TextView pickupDate = findViewById(R.id.pickup_date_summary);
+        TextView pickupTime = findViewById(R.id.pickup_time_summary);
+        TextView pickupLocation = findViewById(R.id.pickup_location_summary);
+        TextView dropoffDate = findViewById(R.id.dropoff_date_summary);
+        TextView dropoffTime = findViewById(R.id.dropoff_time_summary);
+        TextView dropoffLocation = findViewById(R.id.dropoff_location_summary);
+        TextView vehicleClass = findViewById(R.id.class_summary);
+        TextView optionOne = findViewById(R.id.options1_summary);
+        TextView finalRate = findViewById(R.id.rate_summary);
+        TextView finalCost = findViewById(R.id.cost_summary);
 
         //display summary to the user, pulling data from the model and pushing to the view
         pickupDate.setText(lastReservation.getPickUpDate());
@@ -67,6 +53,8 @@ public class ReservFourActivity extends AppCompatActivity {
         vehicleClass.setText(lastReservation.getReservedCar().getVehicleClass());
 
         int totalDailyRate = lastReservation.getReservedCar().getPrice();
+
+        //display additional options
         String additionalOptions = "";
         for(AdditionalOptionsAbstract option : lastReservation.getSelectedOptions()) {
             totalDailyRate += option.getPrice();
@@ -74,8 +62,10 @@ public class ReservFourActivity extends AppCompatActivity {
         }
         optionOne.setText(additionalOptions);
 
+        //display daily rate
         finalRate.setText(String.valueOf(totalDailyRate));
 
+        //format and dropoff dates for calculations coming up next
         SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy");
         Date fromDate = null;
         Date toDate = null;
@@ -85,6 +75,8 @@ public class ReservFourActivity extends AppCompatActivity {
         }  catch (ParseException e) {
             e.printStackTrace();
         }
+
+        //use date information from previous block to calculate total cost and display to user
         int rentalDays = (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
         int finalReservationCost = totalDailyRate * rentalDays;
         finalCost.setText(String.valueOf(finalReservationCost));
@@ -94,7 +86,7 @@ public class ReservFourActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if button is pressed, start the reservation activity
+                //if button is pressed, start the next reservation activity
                 Intent intent = new Intent(ReservFourActivity.this, ReservFiveActivity.class);
                 startActivity(intent);
                 finish();

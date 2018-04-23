@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * A login screen that offers login via email/password.
+ * A login screen that offers login via email/password. Adapted from Android Studio template.
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
+    /**
+     * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
+     * controller and initializes action listeners for UI elements.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,11 +131,21 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Verifies that the email entered by user meets/exceeds certain conditions.
+     * @param email
+     * @return
+     */
     private boolean isEmailValid(String email) {
         //make sure it's an email by making sure it contains an @ and a .
         return email.contains("@") && email.contains(".");
     }
 
+    /**
+     * Verifies that the password entered by user meets/exceeds certain conditions.
+     * @param password
+     * @return
+     */
     private boolean isPasswordValid(String password) {
         //make sure the person's password is at least 5 characters
         return password.length() > 4;

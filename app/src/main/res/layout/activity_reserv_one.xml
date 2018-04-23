@@ -179,21 +179,23 @@
 
     <TextView
         android:id="@+id/pickup_date_view"
-        android:layout_width="94dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="256dp"
-        android:textAlignment="viewStart"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pickup_time_view"
         android:layout_width="94dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="296dp"
-        android:textAlignment="viewStart"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toStartOf="parent"
@@ -201,21 +203,23 @@
 
     <TextView
         android:id="@+id/dropoff_date_view"
-        android:layout_width="94dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="376dp"
-        android:textAlignment="viewStart"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="384dp"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dropoff_time_view"
         android:layout_width="94dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="416dp"
-        android:textAlignment="viewStart"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="424dp"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toStartOf="parent"
