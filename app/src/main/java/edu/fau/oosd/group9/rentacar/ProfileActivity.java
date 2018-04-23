@@ -24,73 +24,61 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         //map UI references to UI elements
-        userName = findViewById(R.id.editText2);
-        userAddress = findViewById(R.id.editText3);
-        userPhone = findViewById(R.id.editText4);
-        userLicense = findViewById(R.id.editText5);
+        userName = findViewById(R.id.edit_user_name);
+        userAddress = findViewById(R.id.edit_user_address);
+        userPhone = findViewById(R.id.edit_user_phone);
+        userLicense = findViewById(R.id.edit_user_license);
 
         TextView textView = (TextView)findViewById(R.id.textView23);
         textView.setText(modelInstance.getCurrentUser().getUserEmailAddress(), TextView.BufferType.EDITABLE);
 
-        EditText editText = (EditText)findViewById(R.id.editText2);
+        EditText editText = (EditText)findViewById(R.id.edit_user_name);
         if(modelInstance.getNameFromUserProfile() == "")
         {
-            editText.setText("Name", TextView.BufferType.EDITABLE);
-            userName = findViewById(R.id.editText2);
+            //editText.setText("Name", TextView.BufferType.EDITABLE);
+            userName = findViewById(R.id.edit_user_name);
         }
         else{
             editText.setText(modelInstance.getNameFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-
-        EditText editText2 = (EditText)findViewById(R.id.editText3);
+        EditText editText2 = (EditText)findViewById(R.id.edit_user_address);
         if(modelInstance.getAddressFromUserProfile() == "")
         {
-            editText2.setText("Address", TextView.BufferType.EDITABLE);
-            userAddress = findViewById(R.id.editText3);
+            //editText2.setText("Address", TextView.BufferType.EDITABLE);
+            userAddress = findViewById(R.id.edit_user_address);
         }
         else{
             editText2.setText(modelInstance.getAddressFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
 
-        EditText editText3 = (EditText)findViewById(R.id.editText4);
+        EditText editText3 = (EditText)findViewById(R.id.edit_user_phone);
         if(modelInstance.getPhoneFromUserProfile() == "")
         {
-            editText3.setText("Phone", TextView.BufferType.EDITABLE);
-            userPhone = findViewById(R.id.editText4);
+            //editText3.setText("Phone", TextView.BufferType.EDITABLE);
+            userPhone = findViewById(R.id.edit_user_phone);
         }
         else{
             editText3.setText(modelInstance.getPhoneFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-        EditText editText4 = (EditText)findViewById(R.id.editText5);
+        EditText editText4 = (EditText)findViewById(R.id.edit_user_license);
         if(modelInstance.getDriverFromUserProfile() == "")
         {
-            editText4.setText("Driver", TextView.BufferType.EDITABLE);
-            userLicense = findViewById(R.id.editText5);
+            //editText4.setText("Driver", TextView.BufferType.EDITABLE);
+            userLicense = findViewById(R.id.edit_user_license);
         }
         else{
             editText4.setText(modelInstance.getDriverFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-
-
-
-
-
         //listen for press of SUBMIT button and call attemptSubmit()
-        Button submitButton = (Button) findViewById(R.id.reservfive_submit);
+        Button submitButton = (Button) findViewById(R.id.profile_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -146,7 +146,7 @@ public class ReservTwoActivity extends AppCompatActivity {
         if (OPTION_FLAG == 0)
         {
             Toast.makeText(ReservTwoActivity.this,
-                    "Please select an option.", Toast.LENGTH_LONG).show();
+                    "Please select a vehicle class", Toast.LENGTH_LONG).show();
         }
         else
         {
