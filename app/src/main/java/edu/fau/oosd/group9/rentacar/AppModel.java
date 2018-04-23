@@ -64,6 +64,22 @@ public class AppModel {
         return addOptionsList.isEmpty();
     }
 
+    public String getNameFromUserProfile(){
+        return currentUser.getUserName();
+    }
+
+    public String getAddressFromUserProfile(){
+        return currentUser.getUserAddress();
+    }
+
+    public String getPhoneFromUserProfile(){
+        return currentUser.getUserPhone();
+    }
+
+    public String getDriverFromUserProfile(){
+        return currentUser.getUserDL();
+    }
+
     private UserProfile currentUser;
     private Map<String, UserProfile> registeredUsers = new HashMap<>();
     private CarList carList = new CarList();

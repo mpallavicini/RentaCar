@@ -12,6 +12,11 @@ public class UserProfile {
         userEmailAddress = emaildAdd;
         userPassword = password;
         userReservations = new ArrayList<>();
+
+        userName = "";
+        userAddress = "";
+        userPhone = "";
+        userDL = "";
     }
 
     public String getUserEmailAddress() {

@@ -16,10 +16,22 @@ public class ProfileActivity extends AppCompatActivity {
     EditText userPhone;
     EditText userLicense;
 
+    //get AppModel instance
+    private final AppModel modelInstance = AppModel.getInstance();
+    //get the current user
+    private UserProfile currentUser = modelInstance.getCurrentUser();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        final AppModel modelInstance = AppModel.getInstance();
+
+
+
+
+
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
 
         //map UI references to UI elements
         userName = findViewById(R.id.editText2);
@@ -27,23 +39,51 @@ public class ProfileActivity extends AppCompatActivity {
         userPhone = findViewById(R.id.editText4);
         userLicense = findViewById(R.id.editText5);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
         TextView textView = (TextView)findViewById(R.id.textView23);
         textView.setText(modelInstance.getCurrentUser().getUserEmailAddress(), TextView.BufferType.EDITABLE);
 
         EditText editText = (EditText)findViewById(R.id.editText2);
-        editText.setText("Get username from model", TextView.BufferType.EDITABLE);
+        if(modelInstance.getNameFromUserProfile() == "")
+        {
+            editText.setText("Name", TextView.BufferType.EDITABLE);
+            userName = userName = findViewById(R.id.editText2);
+        }
+        else{
+            editText.setText(modelInstance.getNameFromUserProfile(), TextView.BufferType.EDITABLE);
+        }
+
 
         EditText editText2 = (EditText)findViewById(R.id.editText3);
-        editText.setText("Get address from model", TextView.BufferType.EDITABLE);
+        if(modelInstance.getAddressFromUserProfile() == "")
+        {
+            editText2.setText("Address", TextView.BufferType.EDITABLE);
+            userAddress = findViewById(R.id.editText3);
+        }
+        else{
+            editText2.setText(modelInstance.getAddressFromUserProfile(), TextView.BufferType.EDITABLE);
+        }
+
 
         EditText editText3 = (EditText)findViewById(R.id.editText4);
-        editText.setText("Get phone from model", TextView.BufferType.EDITABLE);
+        if(modelInstance.getPhoneFromUserProfile() == "")
+        {
+            editText3.setText("Phone", TextView.BufferType.EDITABLE);
+            userPhone = findViewById(R.id.editText4);
+        }
+        else{
+            editText3.setText(modelInstance.getPhoneFromUserProfile(), TextView.BufferType.EDITABLE);
+        }
 
         EditText editText4 = (EditText)findViewById(R.id.editText5);
-        editText.setText("Get drivers license from model", TextView.BufferType.EDITABLE);
+        if(modelInstance.getDriverFromUserProfile() == "")
+        {
+            editText4.setText("Driver", TextView.BufferType.EDITABLE);
+            userLicense = findViewById(R.id.editText5);
+        }
+        else{
+            editText4.setText(modelInstance.getDriverFromUserProfile(), TextView.BufferType.EDITABLE);
+        }
+
 
 
 
@@ -109,7 +149,10 @@ public class ProfileActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             //if there is no error, save the data
-            //TODO: save the user's entries
+            currentUser.setUserName(name);
+            currentUser.setUserAddress(address);
+            currentUser.setUserPhone(phone);
+            currentUser.setUserDL(license);
 
             //if successful, start the next activity
             Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
