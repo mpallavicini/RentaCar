@@ -25,17 +25,17 @@ public class ReservTwoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final AppModel modelInstance = AppModel.getInstance();
+        final Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_two);
 
         //Initialize vehicles
-        final CompactVehicle cv = new CompactVehicle();
-        final MidSize ms = new MidSize();
-        final Crossover co = new Crossover();
-        final Suv suv = new Suv();
-        final Truck truck = new Truck();
-
+        final VehClass_Compact cv = new VehClass_Compact();
+        final VehClass_MidSize ms = new VehClass_MidSize();
+        final VehClass_Crossover co = new VehClass_Crossover();
+        final VehClass_SUV suv = new VehClass_SUV();
+        final VehClass_Truck truck = new VehClass_Truck();
 
         //listen for press of BACK button and go to ReservOneActivity
         Button backButton = (Button) findViewById(R.id.reservtwo_back);
@@ -69,13 +69,13 @@ public class ReservTwoActivity extends AppCompatActivity {
                 {
                     modelInstance.addToCarList(cv);
                 }
-                else{
+                else {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(cv);
                 }
+                lastReservation.setReservedCar(cv);
             }
         });
-
 
         //listen for the selection of compact radio button, then send data to model based off
         //  vehicle class
@@ -88,10 +88,11 @@ public class ReservTwoActivity extends AppCompatActivity {
                 {
                     modelInstance.addToCarList(ms);
                 }
-                else{
+                else {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(ms);
                 }
+                lastReservation.setReservedCar(ms);
             }
         });
 
@@ -106,10 +107,11 @@ public class ReservTwoActivity extends AppCompatActivity {
                 {
                     modelInstance.addToCarList(co);
                 }
-                else{
+                else {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(co);
                 }
+                lastReservation.setReservedCar(co);
             }
         });
 
@@ -124,10 +126,11 @@ public class ReservTwoActivity extends AppCompatActivity {
                 {
                     modelInstance.addToCarList(suv);
                 }
-                else{
+                else {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(suv);
                 }
+                lastReservation.setReservedCar(suv);
             }
         });
 
@@ -138,14 +141,14 @@ public class ReservTwoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 OPTION_FLAG = 1;
-                if(modelInstance.isEmptyFromCarList())
-                {
+                if(modelInstance.isEmptyFromCarList()) {
                     modelInstance.addToCarList(truck);
                 }
-                else{
+                else {
                     modelInstance.removeFromCarList();
                     modelInstance.addToCarList(truck);
                 }
+                lastReservation.setReservedCar(truck);
             }
         });
     }
@@ -164,7 +167,5 @@ public class ReservTwoActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
-
     }
 }

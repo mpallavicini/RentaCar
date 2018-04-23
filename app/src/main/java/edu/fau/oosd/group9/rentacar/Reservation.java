@@ -26,6 +26,10 @@ public class Reservation {
         this.dropOffTime = dropOffTime;
     }
 
+    public void setReservedCar(CarAbstract selectedCar) {
+        this.reservedCar = selectedCar;
+    }
+
     public String getPickUpLocation() {
         return pickUpLocation;
     }
@@ -50,10 +54,15 @@ public class Reservation {
         return dropOffTime;
     }
 
+    public CarAbstract getReservedCar() {
+        return reservedCar;
+    }
+
     private String pickUpLocation;
     private String dropOffLocation;
     private String pickUpDate;
     private String pickUpTime;
     private String dropOffDate;
     private String dropOffTime;
+    private CarAbstract reservedCar;
 }

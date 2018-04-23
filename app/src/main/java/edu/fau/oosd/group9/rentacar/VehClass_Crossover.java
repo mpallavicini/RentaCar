@@ -1,8 +1,8 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class Crossover extends CarAbstract {
+public class VehClass_Crossover extends CarAbstract {
 
-    String price = "$40/day";
+    int price = 40;
     String vehicleClass = "Crossover";
 
     @Override
@@ -10,7 +10,8 @@ public class Crossover extends CarAbstract {
         return vehicleClass;
     }
 
-    public String getPrice() {
+    @Override
+    public int getPrice() {
         return price;
     }
 }

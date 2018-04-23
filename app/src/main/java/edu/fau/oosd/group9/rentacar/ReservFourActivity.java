@@ -63,12 +63,13 @@ public class ReservFourActivity extends AppCompatActivity {
         dropoffDate.setText(lastReservation.getDropOffDate());
         dropoffTime.setText(lastReservation.getDropOffTime());
         dropoffLocation.setText(lastReservation.getDropOffLocation());
-        vehicleClass.setText("Class PH");
+        vehicleClass.setText(lastReservation.getReservedCar().getVehicleClass());
         optionOne.setText("Option PH");
         optionTwo.setText("Option PH");
         optionThree.setText("Option PH");
         finalRate.setText("Rate PH");
-        finalCost.setText("Cost PH");
+        int finalReservationCost = lastReservation.getReservedCar().getPrice();
+        finalCost.setText(String.valueOf(finalReservationCost));
 
 
         //listen for press of BACK button and go to ReservThreeActivity
