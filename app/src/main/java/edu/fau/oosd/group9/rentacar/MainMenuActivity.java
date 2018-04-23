@@ -43,7 +43,7 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //if button is pressed, start the existing reservations activity
-                Intent intent = new Intent(MainMenuActivity.this, ReservationsActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, ManageReservationsActivity.class);
                 startActivity(intent);
                 finish();
             }
