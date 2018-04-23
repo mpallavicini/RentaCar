@@ -94,19 +94,6 @@ public class ReservFourActivity extends AppCompatActivity {
         int finalReservationCost = totalDailyRate * rentalDays;
         finalCost.setText(String.valueOf(finalReservationCost));
 
-
-        //listen for press of BACK button and go to ReservThreeActivity
-        Button backButton = (Button) findViewById(R.id.reservfour_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservFourActivity.this, ReservThreeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //listen for press of NEXT button and go to ReservFiveActivity
         Button nextButton = (Button) findViewById(R.id.reservfour_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
