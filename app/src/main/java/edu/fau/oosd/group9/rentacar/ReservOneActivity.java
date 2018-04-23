@@ -124,18 +124,6 @@ public class ReservOneActivity extends AppCompatActivity
             }
         });
 
-        //listen for press of BACK button and go to MainMenuActivity
-        Button backButton = (Button) findViewById(R.id.reservone_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservOneActivity.this, MainMenuActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //listen for press of NEXT button and call attemptNext()
         Button nextButton = (Button) findViewById(R.id.reservone_next);
         nextButton.setOnClickListener(new View.OnClickListener() {

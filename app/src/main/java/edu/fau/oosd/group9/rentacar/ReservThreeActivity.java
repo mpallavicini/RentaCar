@@ -32,19 +32,6 @@ public class ReservThreeActivity extends AppCompatActivity {
         final AddOptions_SatelliteRadio sr = new AddOptions_SatelliteRadio();
         final AddOptions_GPS gps = new AddOptions_GPS();
 
-
-        //listen for press of BACK button and go to ReservTwoActivity
-        Button backButton = (Button) findViewById(R.id.reservthree_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservThreeActivity.this, ReservTwoActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //listen for press of NEXT button and go to ReservFourActivity
         Button nextButton = (Button) findViewById(R.id.reservthree_next);
         nextButton.setOnClickListener(new View.OnClickListener() {

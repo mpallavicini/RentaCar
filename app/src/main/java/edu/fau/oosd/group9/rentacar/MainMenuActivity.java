@@ -23,7 +23,6 @@ public class MainMenuActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             currentUserView.setText(extras.getString("currentUser"));
-
         }
 
         //listen for press of Make a Reservation button

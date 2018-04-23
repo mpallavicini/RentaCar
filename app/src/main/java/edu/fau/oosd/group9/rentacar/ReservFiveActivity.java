@@ -40,18 +40,6 @@ public class ReservFiveActivity extends AppCompatActivity {
         userPhone = findViewById(R.id.user_phone);
         userLicense = findViewById(R.id.user_license);
 
-        //listen for press of BACK button and go to ReservFourActivity
-        Button backButton = (Button) findViewById(R.id.reservfive_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if button is pressed, start the previous activity
-                Intent intent = new Intent(ReservFiveActivity.this, ReservFourActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //listen for press of SUBMIT button and call attemptSubmit()
         Button submitButton = (Button) findViewById(R.id.reservfive_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {

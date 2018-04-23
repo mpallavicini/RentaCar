@@ -37,18 +37,6 @@ public class ReservTwoActivity extends AppCompatActivity {
         final VehClass_SUV suv = new VehClass_SUV();
         final VehClass_Truck truck = new VehClass_Truck();
 
-        //listen for press of BACK button and go to ReservOneActivity
-        Button backButton = (Button) findViewById(R.id.reservtwo_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(ReservTwoActivity.this, ReservOneActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //listen for press of NEXT button and call attemptNext()
         Button nextButton = (Button) findViewById(R.id.reservtwo_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
