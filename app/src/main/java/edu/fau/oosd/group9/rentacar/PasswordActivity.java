@@ -29,7 +29,7 @@ public class PasswordActivity extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_password);
 
         //map UI references to UI element
         userPassword = findViewById(R.id.editText2);
