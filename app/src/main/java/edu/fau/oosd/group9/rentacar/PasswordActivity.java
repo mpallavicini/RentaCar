@@ -7,12 +7,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class PasswordActivity extends AppCompatActivity {
 
     EditText userPassword;
-
 
     //get AppModel instance
     private final AppModel modelInstance = AppModel.getInstance();
@@ -21,27 +19,30 @@ public class PasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
 
         //map UI references to UI element
-        userPassword = findViewById(R.id.editText2);
-
-
+        userPassword = findViewById(R.id.new_password);
 
         //listen for press of SUBMIT button and call attemptSubmit()
-        Button submitButton = (Button) findViewById(R.id.reservfive_submit);
+        Button submitButton = (Button) findViewById(R.id.password_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptSubmit();
+            }
+        });
+
+        //listen for press of CANCEL button and go back to Settings
+        Button cancelButton = (Button) findViewById(R.id.password_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if button is pressed, go to Settings activity
+                Intent intent = new Intent(PasswordActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -56,7 +57,6 @@ public class PasswordActivity extends AppCompatActivity {
         //stores values at the time of submit attempt
         String password = userPassword.getText().toString();
 
-
         //reset error flags
         boolean cancel = false;
         View focusView = null;
@@ -64,6 +64,11 @@ public class PasswordActivity extends AppCompatActivity {
         //check for valid name
         if (TextUtils.isEmpty(password)) {
             userPassword.setError("This field is required");
+            focusView = userPassword;
+            cancel = true;
+        }
+        else if (!isPasswordValid(password)) {
+            userPassword.setError("This password is too short");
             focusView = userPassword;
             cancel = true;
         }
@@ -80,5 +85,10 @@ public class PasswordActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    private boolean isPasswordValid(String password) {
+        //make sure the person's password is at least 5 characters
+        return password.length() > 4;
     }
 }

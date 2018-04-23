@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean isPasswordValid(String password) {
-        //make sure te person's password is at least 4 characters
+        //make sure the person's password is at least 5 characters
         return password.length() > 4;
     }
 

@@ -73,6 +73,18 @@ public class ProfileActivity extends AppCompatActivity {
             editText4.setText(modelInstance.getDriverFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
+        //listen for press of CANCEL button and go back to Settings
+        Button cancelButton = (Button) findViewById(R.id.profile_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if button is pressed, go to Settings activity
+                Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         //listen for press of SUBMIT button and call attemptSubmit()
         Button submitButton = (Button) findViewById(R.id.profile_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
