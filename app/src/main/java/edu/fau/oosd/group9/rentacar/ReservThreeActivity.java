@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.Toast;
 
 /**
  * The third page of the reservation wizard.
@@ -24,14 +22,15 @@ public class ReservThreeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final AppModel modelInstance = AppModel.getInstance();
+        final Reservation lastReservation = modelInstance.getCurrentUser().getLastReservation();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserv_three);
 
         //Initialize additional options
-        final VehicleInsurance vi = new VehicleInsurance();
-        final SatelliteRadio sr = new SatelliteRadio();
-        final GPS gps = new GPS();
+        final AddOptions_VehInsurance vi = new AddOptions_VehInsurance();
+        final AddOptions_SatelliteRadio sr = new AddOptions_SatelliteRadio();
+        final AddOptions_GPS gps = new AddOptions_GPS();
 
 
         //listen for press of BACK button and go to ReservTwoActivity
@@ -65,12 +64,13 @@ public class ReservThreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (vehicleBox.isChecked()) {
-                    modelInstance.addToOptionList(vi);
+                    modelInstance.addToOptionsList(vi);
+                    lastReservation.addAdditionalOptions(vi);
                 } else {
                     if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
                     } else {
-                        modelInstance.removeFromOptionList(vi);
+                        modelInstance.removeFromOptionsList(vi);
                     }
                 }
             }
@@ -82,12 +82,13 @@ public class ReservThreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (satelliteBox.isChecked()) {
-                    modelInstance.addToOptionList(sr);
+                    modelInstance.addToOptionsList(sr);
+                    lastReservation.addAdditionalOptions(sr);
                 } else {
                     if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
                     } else {
-                        modelInstance.removeFromOptionList(sr);
+                        modelInstance.removeFromOptionsList(sr);
                     }
                 }
             }
@@ -99,12 +100,13 @@ public class ReservThreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (gpsBox.isChecked()) {
-                    modelInstance.addToOptionList(gps);
+                    modelInstance.addToOptionsList(gps);
+                    lastReservation.addAdditionalOptions(gps);
                 } else {
                     if (modelInstance.isEmptyFromOptionList()) {
                         //do nothing empty
                     } else {
-                        modelInstance.removeFromOptionList(gps);
+                        modelInstance.removeFromOptionsList(gps);
                     }
                 }
             }

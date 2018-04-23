@@ -1,12 +1,12 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class SatelliteRadio extends AdditionalOptionsAbstract {
+public class AddOptions_SatelliteRadio extends AdditionalOptionsAbstract {
 
-    String price = "5/day";
+    int price = 5;
     String option = "Satellite Radio";
 
     @Override
-    public String getPrice(){
+    public int getPrice(){
         return price;
     }
 

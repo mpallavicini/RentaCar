@@ -1,12 +1,12 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class GPS extends AdditionalOptionsAbstract {
+public class AddOptions_GPS extends AdditionalOptionsAbstract {
 
-    String price = "10/day";
+    int price = 10;
     String option = "GPS";
 
     @Override
-    public String getPrice(){
+    public int getPrice(){
         return price;
     }
 

@@ -3,7 +3,7 @@ package edu.fau.oosd.group9.rentacar;
 import java.util.HashMap;
 
 
-public class OptionList {
+public class AddOptionsList {
 
     HashMap<String, AdditionalOptions> optionList = new HashMap();
 

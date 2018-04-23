@@ -1,8 +1,5 @@
 package edu.fau.oosd.group9.rentacar;
 
-import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,25 +54,19 @@ public class AppModel {
         return carList.isEmpty();
     }
 
-    public void addToOptionList(AdditionalOptions ao){
-        optionList.add(ao);
+    public void addToOptionsList(AdditionalOptions ao){
+        addOptionsList.add(ao);
     }
 
-    public String getPriceFromOptionList(String optionType){
-        return optionList.get(optionType).getPrice();
-    }
-
-    public void removeFromOptionList(AdditionalOptions ao){
-        optionList.remove(ao);
-    }
+    public void removeFromOptionsList(AdditionalOptions ao) { addOptionsList.remove(ao); }
 
     public Boolean isEmptyFromOptionList(){
-        return optionList.isEmpty();
+        return addOptionsList.isEmpty();
     }
 
     private UserProfile currentUser;
     private Map<String, UserProfile> registeredUsers = new HashMap<>();
     private CarList carList = new CarList();
-    private OptionList optionList = new OptionList();
+    private AddOptionsList addOptionsList = new AddOptionsList();
     private static AppModel instance = new AppModel();
 }

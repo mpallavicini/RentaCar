@@ -1,12 +1,12 @@
 package edu.fau.oosd.group9.rentacar;
 
-public class VehicleInsurance extends AdditionalOptionsAbstract {
+public class AddOptions_VehInsurance extends AdditionalOptionsAbstract {
 
-    String price = "15/day";
+    int price = 15;
     String option = "Vehicle Insurance";
 
     @Override
-    public String getPrice(){
+    public int getPrice(){
         return price;
     }
 

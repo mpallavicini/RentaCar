@@ -5,6 +5,7 @@ public abstract class CarAbstract implements Car {
     @Override
     public abstract int getPrice();
 
+    @Override
     public abstract String getVehicleClass();
 
     @Override

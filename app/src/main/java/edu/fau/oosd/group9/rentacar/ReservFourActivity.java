@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * The fourth page of the reservation wizard.
  */
@@ -64,11 +68,28 @@ public class ReservFourActivity extends AppCompatActivity {
         dropoffTime.setText(lastReservation.getDropOffTime());
         dropoffLocation.setText(lastReservation.getDropOffLocation());
         vehicleClass.setText(lastReservation.getReservedCar().getVehicleClass());
-        optionOne.setText("Option PH");
-        optionTwo.setText("Option PH");
-        optionThree.setText("Option PH");
-        finalRate.setText("Rate PH");
-        int finalReservationCost = lastReservation.getReservedCar().getPrice();
+
+        int totalDailyRate = lastReservation.getReservedCar().getPrice();
+        for(AdditionalOptionsAbstract option : lastReservation.getSelectedOptions()) {
+            totalDailyRate += option.getPrice();
+            if(option.getOption() == "Vehicle Insurance") { optionOne.setText("Vehicle Insurance"); }
+            if(option.getOption() == "Satellite Radio") { optionTwo.setText("Satellite Radio"); }
+            if(option.getOption() == "GPS") { optionThree.setText("GPS"); }
+        }
+
+        finalRate.setText(String.valueOf(totalDailyRate));
+
+        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+        Date fromDate = null;
+        Date toDate = null;
+        try {
+            fromDate = format.parse(lastReservation.getPickUpDate());
+            toDate = format.parse(lastReservation.getDropOffDate());
+        }  catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int rentalDays = (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
+        int finalReservationCost = totalDailyRate * rentalDays;
         finalCost.setText(String.valueOf(finalReservationCost));
 
 
