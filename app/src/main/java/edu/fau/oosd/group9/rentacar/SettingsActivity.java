@@ -18,12 +18,26 @@ public class SettingsActivity extends AppCompatActivity {
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if button is pressed, start the reservation activity
+                //if button is pressed, start the login
                 Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+        //listen for press of View/Edit Profile button
+        Button profileButton = (Button) findViewById(R.id.profile_button);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if button is pressed, start the profile activity
+                Intent intent = new Intent(SettingsActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
         //listen for press of Main Menu button
         Button mainMenuButton = (Button) findViewById(R.id.main_menu_button);

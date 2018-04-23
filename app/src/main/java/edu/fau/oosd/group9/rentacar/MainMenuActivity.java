@@ -38,17 +38,17 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-/*        //listen for press of Settings button
+        //listen for press of Existing Reservations button
         Button existingReservationsButton = (Button) findViewById(R.id.existing_reservations_button);
-        existingReservationsButton.setOnClickListener(new OnClickListener() {
+        existingReservationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if button is pressed, start the reservation activity
-                Intent intent = new Intent(MainMenuActivity.this, ExistingReservationsActivity.class);
+                //if button is pressed, start the existing reservations activity
+                Intent intent = new Intent(MainMenuActivity.this, ReservationsActivity.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
         //listen for press of Settings button
         Button settingsButton = (Button) findViewById(R.id.settings_button);

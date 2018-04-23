@@ -33,7 +33,9 @@
         <activity android:name=".ReservThreeActivity" />
         <activity android:name=".ReservFourActivity" />
         <activity android:name=".ReservFiveActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ReservationsActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
