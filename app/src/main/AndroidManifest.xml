@@ -32,7 +32,8 @@
         <activity android:name=".ReservTwoActivity" />
         <activity android:name=".ReservThreeActivity" />
         <activity android:name=".ReservFourActivity" />
-        <activity android:name=".ReservFiveActivity"></activity>
+        <activity android:name=".ReservFiveActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
