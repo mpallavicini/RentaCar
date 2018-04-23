@@ -39,7 +39,6 @@ public class ProfileActivity extends AppCompatActivity {
         EditText editText = (EditText)findViewById(R.id.edit_user_name);
         if(modelInstance.getNameFromUserProfile() == "")
         {
-            //editText.setText("Name", TextView.BufferType.EDITABLE);
             userName = findViewById(R.id.edit_user_name);
         }
         else{
@@ -49,7 +48,6 @@ public class ProfileActivity extends AppCompatActivity {
         EditText editText2 = (EditText)findViewById(R.id.edit_user_address);
         if(modelInstance.getAddressFromUserProfile() == "")
         {
-            //editText2.setText("Address", TextView.BufferType.EDITABLE);
             userAddress = findViewById(R.id.edit_user_address);
         }
         else{
@@ -60,7 +58,6 @@ public class ProfileActivity extends AppCompatActivity {
         EditText editText3 = (EditText)findViewById(R.id.edit_user_phone);
         if(modelInstance.getPhoneFromUserProfile() == "")
         {
-            //editText3.setText("Phone", TextView.BufferType.EDITABLE);
             userPhone = findViewById(R.id.edit_user_phone);
         }
         else{
@@ -70,7 +67,6 @@ public class ProfileActivity extends AppCompatActivity {
         EditText editText4 = (EditText)findViewById(R.id.edit_user_license);
         if(modelInstance.getDriverFromUserProfile() == "")
         {
-            //editText4.setText("Driver", TextView.BufferType.EDITABLE);
             userLicense = findViewById(R.id.edit_user_license);
         }
         else{
