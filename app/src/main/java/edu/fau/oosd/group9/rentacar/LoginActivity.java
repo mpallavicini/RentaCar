@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Verifies that the email entered by user meets/exceeds certain conditions.
      * @param email
-     * @return
+     * @return true or false if email is valid
      */
     private boolean isEmailValid(String email) {
         //make sure it's an email by making sure it contains an @ and a .
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Verifies that the password entered by user meets/exceeds certain conditions.
      * @param password
-     * @return
+     * @return true or false if password is valid
      */
     private boolean isPasswordValid(String password) {
         //make sure the person's password is at least 5 characters
