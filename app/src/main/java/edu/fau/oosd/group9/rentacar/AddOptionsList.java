@@ -2,7 +2,6 @@ package edu.fau.oosd.group9.rentacar;
 
 import java.util.HashMap;
 
-
 /**
  * Holds the list of additional options.
  */
