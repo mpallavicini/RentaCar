@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * Activity for Viewing a Reservation's Summary
+ * @author Ohm
+ */
 public class ViewReservationActivity extends AppCompatActivity {
 
     //references to text fields that hold values updated by timePicker() and datePicker()
@@ -30,6 +34,11 @@ public class ViewReservationActivity extends AppCompatActivity {
     private ArrayList<Reservation> existingReservations = currentUser.getUserReservations();
     private Reservation reservationToView;
 
+    /**
+     * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
+     * controller and initializes action listeners for those UI elements.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +76,10 @@ public class ViewReservationActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Loads all data of the selected reservations into all the UI elements of the View
+     * @param reservationIndex index of the reservation selected by the user
+     */
     private void loadSelectedReservation(int reservationIndex) {
 
         reservationToView = existingReservations.get(reservationIndex);
