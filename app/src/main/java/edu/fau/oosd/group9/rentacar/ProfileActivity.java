@@ -9,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * The view/edit profile activity.
+ */
 public class ProfileActivity extends AppCompatActivity {
 
+    //references to text fields that hold values to be updated from view later
     EditText userName;
     EditText userAddress;
     EditText userPhone;
@@ -21,6 +25,11 @@ public class ProfileActivity extends AppCompatActivity {
     //get the current user
     private UserProfile currentUser = modelInstance.getCurrentUser();
 
+    /**
+     * On creation of the activity by the user, run this code. Maps the UI elements (view) to the
+     * controller and initializes action listeners for UI elements.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,11 +41,14 @@ public class ProfileActivity extends AppCompatActivity {
         userAddress = findViewById(R.id.edit_user_address);
         userPhone = findViewById(R.id.edit_user_phone);
         userLicense = findViewById(R.id.edit_user_license);
+        TextView textView = (TextView)findViewById(R.id.profile_email_view);
 
-        TextView textView = (TextView)findViewById(R.id.textView23);
+        //display user's email address
         textView.setText(modelInstance.getCurrentUser().getUserEmailAddress(), TextView.BufferType.EDITABLE);
 
-        EditText editText = (EditText)findViewById(R.id.edit_user_name);
+        //display the user's name as long as it is not empty in the profile
+        //listen for changes and store locally to submit later
+        EditText editText = (EditText)userName;
         if(modelInstance.getNameFromUserProfile() == "")
         {
             userName = findViewById(R.id.edit_user_name);
@@ -45,7 +57,9 @@ public class ProfileActivity extends AppCompatActivity {
             editText.setText(modelInstance.getNameFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-        EditText editText2 = (EditText)findViewById(R.id.edit_user_address);
+        //display the user's address as long as it is not empty in the profile
+        //listen for changes and store locally to submit later
+        EditText editText2 = (EditText)userAddress;
         if(modelInstance.getAddressFromUserProfile() == "")
         {
             userAddress = findViewById(R.id.edit_user_address);
@@ -54,8 +68,9 @@ public class ProfileActivity extends AppCompatActivity {
             editText2.setText(modelInstance.getAddressFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-
-        EditText editText3 = (EditText)findViewById(R.id.edit_user_phone);
+        //display the user's phone number as long as it is not empty in the profile
+        //listen for changes and store locally to submit later
+        EditText editText3 = (EditText)userPhone;
         if(modelInstance.getPhoneFromUserProfile() == "")
         {
             userPhone = findViewById(R.id.edit_user_phone);
@@ -64,7 +79,9 @@ public class ProfileActivity extends AppCompatActivity {
             editText3.setText(modelInstance.getPhoneFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
-        EditText editText4 = (EditText)findViewById(R.id.edit_user_license);
+        //display the user's driver license number as long as it is not empty in the profile
+        //listen for changes and store locally to submit later
+        EditText editText4 = (EditText)userLicense;
         if(modelInstance.getDriverFromUserProfile() == "")
         {
             userLicense = findViewById(R.id.edit_user_license);
