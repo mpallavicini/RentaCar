@@ -42,52 +42,52 @@ public class ProfileActivity extends AppCompatActivity {
         userAddress = findViewById(R.id.edit_user_address);
         userPhone = findViewById(R.id.edit_user_phone);
         userLicense = findViewById(R.id.edit_user_license);
-        TextView textView = (TextView)findViewById(R.id.profile_email_view);
+        TextView textView = (TextView) findViewById(R.id.profile_email_view);
 
         //display user's email address
         textView.setText(modelInstance.getCurrentUser().getUserEmailAddress(), TextView.BufferType.EDITABLE);
 
         //display the user's name as long as it is not empty in the profile
         //listen for changes and store locally to submit later
-        EditText editText = (EditText)userName;
+        EditText editText = (EditText) userName;
         if(modelInstance.getNameFromUserProfile() == "")
         {
             userName = findViewById(R.id.edit_user_name);
         }
-        else{
+        else {
             editText.setText(modelInstance.getNameFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
         //display the user's address as long as it is not empty in the profile
         //listen for changes and store locally to submit later
-        EditText editText2 = (EditText)userAddress;
+        EditText editText2 = (EditText) userAddress;
         if(modelInstance.getAddressFromUserProfile() == "")
         {
             userAddress = findViewById(R.id.edit_user_address);
         }
-        else{
+        else {
             editText2.setText(modelInstance.getAddressFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
         //display the user's phone number as long as it is not empty in the profile
         //listen for changes and store locally to submit later
-        EditText editText3 = (EditText)userPhone;
+        EditText editText3 = (EditText) userPhone;
         if(modelInstance.getPhoneFromUserProfile() == "")
         {
             userPhone = findViewById(R.id.edit_user_phone);
         }
-        else{
+        else {
             editText3.setText(modelInstance.getPhoneFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 
         //display the user's driver license number as long as it is not empty in the profile
         //listen for changes and store locally to submit later
-        EditText editText4 = (EditText)userLicense;
+        EditText editText4 = (EditText) userLicense;
         if(modelInstance.getDriverFromUserProfile() == "")
         {
             userLicense = findViewById(R.id.edit_user_license);
         }
-        else{
+        else {
             editText4.setText(modelInstance.getDriverFromUserProfile(), TextView.BufferType.EDITABLE);
         }
 

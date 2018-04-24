@@ -73,6 +73,22 @@ public class Reservation {
     }
 
     /**
+     * Stores the final daily for the reservation
+     * @param finalDailyRate the final daily rate for the reservation
+     */
+    public void setFinalDailyRate(int finalDailyRate) {
+        this.finalDailyRate = finalDailyRate;
+    }
+
+    /**
+     * Stores the final bill amount of the reservation
+     * @param finalReservationBill the final bill amount of the reservation
+     */
+    public void setFinalReservationBill(int finalReservationBill) {
+        this.finalReservationBill = finalReservationBill;
+    }
+
+    /**
      * Gets the pickup location stored in the reservation
      * @return the name of the pickup location
      */
@@ -136,6 +152,22 @@ public class Reservation {
         return selectedOptions;
     }
 
+    /**
+     * Get the final daily rate of the reservation
+     * @return the final daily rate
+     */
+    public int getFinalDailyRate() {
+        return finalDailyRate;
+    }
+
+    /**
+     * Get the final bill amount of the reservation
+     * @return the final bill amount
+     */
+    public int getFinalReservationBill() {
+        return finalReservationBill;
+    }
+
     private String pickUpLocation;
     private String dropOffLocation;
     private String pickUpDate;
@@ -144,4 +176,6 @@ public class Reservation {
     private String dropOffTime;
     private CarAbstract reservedCar;
     private ArrayList<AdditionalOptionsAbstract> selectedOptions = new ArrayList<>();
+    private int finalDailyRate;
+    private int finalReservationBill;
 }

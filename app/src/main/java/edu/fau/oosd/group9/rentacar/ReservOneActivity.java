@@ -91,7 +91,7 @@ public class ReservOneActivity extends AppCompatActivity
         pickupLocation.setOnItemSelectedListener(this);
         dropoffLocation.setOnItemSelectedListener(this);
 
-        //listen for press of Pickup Date PICK DATE button and call datePicker()
+        //listen for press of Pickup Date button and call datePicker()
         pickupDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +100,7 @@ public class ReservOneActivity extends AppCompatActivity
             }
         });
 
-        //listen for press Pickup Time PICK TIME button and call timePicker()
+        //listen for press Pickup Time button and call timePicker()
         pickupTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class ReservOneActivity extends AppCompatActivity
             }
         });
 
-        //listen for press of the Dropoff Date PICK DATE button and call datePicker()
+        //listen for press of the Dropoff Date button and call datePicker()
         dropoffDateButton.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick (View v) {
@@ -118,7 +118,7 @@ public class ReservOneActivity extends AppCompatActivity
             }
         }));
 
-        //listen for press of the Dropoff Time PICK TIME button and call timePicker()
+        //listen for press of the Dropoff Time button and call timePicker()
         dropoffTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

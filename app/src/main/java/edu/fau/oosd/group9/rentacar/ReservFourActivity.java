@@ -63,8 +63,9 @@ public class ReservFourActivity extends AppCompatActivity {
         }
         optionOne.setText(additionalOptions);
 
-        //display daily rate
+        //display daily rate and save it to the reservation
         finalRate.setText(String.valueOf(totalDailyRate));
+        lastReservation.setFinalDailyRate(totalDailyRate);
 
         //format and dropoff dates for calculations coming up next
         SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy");
@@ -77,10 +78,12 @@ public class ReservFourActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //use date information from previous block to calculate total cost and display to user
+        //use date information from previous block to calculate total cost, display it to user
+        //and save it to the reservation
         int rentalDays = (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
         int finalReservationCost = totalDailyRate * rentalDays;
         finalCost.setText(String.valueOf(finalReservationCost));
+        lastReservation.setFinalReservationBill(finalReservationCost);
 
         //listen for press of NEXT button and go to ReservFiveActivity
         Button nextButton = (Button) findViewById(R.id.reservfour_next);
