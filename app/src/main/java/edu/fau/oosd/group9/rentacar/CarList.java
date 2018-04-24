@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Holds the list of cars.
+ * @author Justin + Ohm
  */
 public class CarList {
 

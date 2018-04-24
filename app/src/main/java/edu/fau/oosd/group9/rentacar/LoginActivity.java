@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 /**
  * A login screen that offers login via email/password. Adapted from Android Studio template.
+ * @author Marco + Ohm (adapted from Android Studio template)
  */
 public class LoginActivity extends AppCompatActivity {
 

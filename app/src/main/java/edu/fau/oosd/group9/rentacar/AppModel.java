@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Model that stores data for the app.
+ * @author Justin + Ohm
  */
 
 public class AppModel {

@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A crossover vehicle class object.
+ * @author Justin
  */
 public class VehClass_Crossover extends CarAbstract {
 

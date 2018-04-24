@@ -8,6 +8,7 @@ import android.widget.Button;
 
 /**
  * A simple Settings menu with buttons.
+ * @author Marco
  */
 public class SettingsActivity extends AppCompatActivity {
 

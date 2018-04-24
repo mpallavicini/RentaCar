@@ -11,6 +11,7 @@ import java.util.Calendar;
 
 /**
  * Class for handling input and output from a date picker
+ * @author Marco
  */
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {

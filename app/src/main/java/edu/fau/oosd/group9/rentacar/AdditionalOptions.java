@@ -3,6 +3,7 @@ package edu.fau.oosd.group9.rentacar;
 /**
  * The default interface for additional reservation options and
  * contains methods that must be implemented.
+ * @author Justin + Ohm
  */
 public interface AdditionalOptions extends Cloneable {
 

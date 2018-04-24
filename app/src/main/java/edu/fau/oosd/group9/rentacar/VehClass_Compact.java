@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A compact vehicle class object.
+ * @author Justin
  */
 public class VehClass_Compact extends CarAbstract {
 

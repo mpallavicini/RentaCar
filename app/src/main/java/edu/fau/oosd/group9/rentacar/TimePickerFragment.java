@@ -12,6 +12,7 @@ import java.util.Calendar;
 
 /**
  * Class for handling input and output from a time picker
+ * @author Marco
  */
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {

@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A truck vehicle class object.
+ * @author Justin
  */
 public class VehClass_Truck extends CarAbstract {
 

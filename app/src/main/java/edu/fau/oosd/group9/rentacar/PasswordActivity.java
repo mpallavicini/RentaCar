@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 /**
  * Activity where the user can change his/her password.
+ * @author Justin + Marco + Ohm
  */
 public class PasswordActivity extends AppCompatActivity {
 

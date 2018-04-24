@@ -3,6 +3,7 @@ package edu.fau.oosd.group9.rentacar;
 /**
  * Abstract class for a vehicle class Car object that implements Car interface.
  * Defines some methods so that we don't have to repeat code for all prototypes.
+ * @author Justin + Ohm
  */
 public abstract class CarAbstract implements Car {
 

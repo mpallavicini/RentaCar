@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A GPS option object.
+ * @author Justin + Ohm
  */
 public class AddOptions_GPS extends AdditionalOptionsAbstract {
 

@@ -13,6 +13,7 @@ import java.util.Date;
 
 /**
  * The fourth page of the reservation wizard for displaying reservation summary.
+ * @author Marco + Ohm
  */
 public class ReservFourActivity extends AppCompatActivity {
 

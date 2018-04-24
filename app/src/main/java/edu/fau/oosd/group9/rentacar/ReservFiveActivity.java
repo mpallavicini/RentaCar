@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 /**
  * The fifth page of the reservation wizard prompting the user for contact information.
+ * @author Marco + Ohm
  */
 public class ReservFiveActivity extends AppCompatActivity {
 

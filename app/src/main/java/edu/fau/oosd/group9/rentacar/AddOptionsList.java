@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Holds the list of additional options.
+ * @author Justin + Ohm
  */
 public class AddOptionsList {
 

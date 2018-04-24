@@ -19,6 +19,7 @@ import java.util.Locale;
 
 /**
  * The first page of the reservation wizard for entering logistics.
+ * @author Marco + Ohm
  */
 public class ReservOneActivity extends AppCompatActivity
         implements DatePickerFragment.DatePickerFragmentListener,

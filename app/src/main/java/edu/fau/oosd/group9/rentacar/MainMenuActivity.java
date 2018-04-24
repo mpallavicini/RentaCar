@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 /**
  * The main menu.
+ * @author Marco + Ohm
  */
 public class MainMenuActivity extends AppCompatActivity {
 

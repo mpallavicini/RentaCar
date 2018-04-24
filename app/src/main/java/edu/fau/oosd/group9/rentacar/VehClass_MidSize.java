@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A mid-size vehicle class object.
+ * @author Justin
  */
 public class VehClass_MidSize extends CarAbstract {
 

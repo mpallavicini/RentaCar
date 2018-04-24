@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * A Satellite Radio option object.
+ * @author Justin + Ohm
  */
 public class AddOptions_SatelliteRadio extends AdditionalOptionsAbstract {
 

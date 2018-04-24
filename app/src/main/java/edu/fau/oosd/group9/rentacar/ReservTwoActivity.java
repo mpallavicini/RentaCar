@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 /**
  * The second page of the reservation wizard for selecting vehicle class.
+ * @author Justin + Ohm + Marco
  */
 public class ReservTwoActivity extends AppCompatActivity {
 

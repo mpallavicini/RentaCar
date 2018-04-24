@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 
 /**
  * The third page of the reservation wizard for selecting additional options.
+ * @author Justin + Ohm + Marco
  */
 public class ReservThreeActivity extends AppCompatActivity {
 

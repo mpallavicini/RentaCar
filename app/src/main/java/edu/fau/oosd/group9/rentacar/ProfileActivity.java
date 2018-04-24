@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 /**
  * The view/edit profile activity.
+ * @author Justin + Marco + Ohm
  */
 public class ProfileActivity extends AppCompatActivity {
 

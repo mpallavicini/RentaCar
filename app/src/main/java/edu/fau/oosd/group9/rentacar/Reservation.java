@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Reservation class that stores an instances of a reservation
+ * @author Ohm
  */
 public class Reservation {
 

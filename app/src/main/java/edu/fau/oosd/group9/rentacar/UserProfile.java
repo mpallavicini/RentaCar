@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * User profile class that stores an instance of a user
+ * @author Ohm
  */
 public class UserProfile {
 

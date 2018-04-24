@@ -2,6 +2,7 @@ package edu.fau.oosd.group9.rentacar;
 
 /**
  * An SUV vehicle class object.
+ * @author Justin
  */
 public class VehClass_SUV extends CarAbstract {
 
